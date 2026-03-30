@@ -82,50 +82,52 @@
 
 
         <style>
-    /* Ce code va forcer l'alignement propre */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Force 4 colonnes égales */
-        gap: 20px;
-        margin-top: 40px;
+    /* Style pour les boutons de détails */
+    .btn-details {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 20px;
+        background: transparent;
+        border: 1px solid currentColor; /* Prend la couleur du texte (le néon) */
+        color: inherit;
+        text-decoration: none;
+        font-size: 0.8em;
+        border-radius: 4px;
+        transition: 0.3s;
+        cursor: pointer;
     }
 
-    /* Adaptation pour mobile : si l'écran est petit, on empile */
-    @media (max-width: 900px) {
-        .grid-container {
-            grid-template-columns: repeat(2, 1fr); /* 2x2 sur tablettes */
-        }
-    }
-    @media (max-width: 600px) {
-        .grid-container {
-            grid-template-columns: 1fr; /* 1 seule colonne sur téléphone */
-        }
+    .btn-details:hover {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px currentColor;
     }
 </style>
 
 <div class="grid-container">
-    <div class="card">
-        <h3 style="color: var(--neon-blue);">AUDIT & PENTEST</h3>
-        <p>Analyse offensive des systèmes et tests d'intrusion. Identification des vulnérabilités critiques.</p>
+    <div class="card" style="color: var(--neon-blue);">
+        <h3>AUDIT & PENTEST</h3>
+        <p style="color: #ccc;">Analyse offensive des systèmes et tests d'intrusion. Identification des vulnérabilités critiques.</p>
+        <a href="audit.html" class="btn-details">VOIR L'EXPERTISE</a>
     </div>
 
-    <div class="card">
-        <h3 style="color: var(--neon-green);">DÉVELOPPEMENT APP</h3>
-        <p>Conception d'applications cross-platform avec Flutter/Dart. Focus sur la performance et l'UI/UX.</p>
+    <div class="card" style="color: var(--neon-green);">
+        <h3>DÉVELOPPEMENT APP</h3>
+        <p style="color: #ccc;">Conception d'applications cross-platform avec Flutter/Dart. Focus sur la performance et l'UI/UX.</p>
+        <a href="dev.html" class="btn-details">PROJETS DART</a>
     </div>
 
-    <div class="card">
-        <h3 style="color: #ff003c;">PROD. AUDIOVISUELLE</h3>
-        <p>Réalisation de projets cinématographiques et montage pro. De la scénarisation à la post-production.</p>
+    <div class="card" style="color: #ff003c;">
+        <h3>PROD. AUDIOVISUELLE</h3>
+        <p style="color: #ccc;">Réalisation de projets cinématographiques et montage pro. De la scénarisation à la post-production.</p>
+        <a href="le-reflet.html" class="btn-details">LE REFLET</a>
     </div>
 
-    <div class="card">
-        <h3 style="color: #f1c40f;">IA & AUTOMATISATION</h3>
-        <p>Intégration de modèles d'IA et automatisation de workflows. Optimisation via le scripting avancé.</p>
+    <div class="card" style="color: #f1c40f;">
+        <h3>IA & AUTOMATISATION</h3>
+        <p style="color: #ccc;">Intégration de modèles d'IA et automatisation de workflows. Optimisation via le scripting avancé.</p>
+        <a href="ia.html" class="btn-details">LABS IA</a>
     </div>
 </div>
-
-
 
 
     </header>
