@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mousstallstudio.github.io/sitemap.xml
