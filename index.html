@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+*<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -63,7 +63,7 @@
         .footer { text-align: center; margin-top: 80px; padding: 20px; color: #555; border-top: 1px solid #222; }
 
         /* Animation Typing */
-        .typing { overflow: hidden; border-right: .15em solid var(--neon-blue); white-space: nowrap; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
+       .typing { overflow: hidden; border-right: .15em solid var(--neon-blue); white-space: nowrap; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-blue); } }
     </style>
@@ -78,23 +78,36 @@
             <span>LOCATION: DAKAR_SN</span>
             <span>OS: LUBUNTU_PRO</span>
             <span style="color: var(--neon-green);">[PROTECTED]</span>
-        </div>
-        <div class="grid">
+        </div> 
+
+
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+        
         <div class="card">
-            <h2>AUDIT DE SÉCURITÉ</h2>
-            <p>Analyse de surface d'attaque, tests d'intrusion (Pentest) et sécurisation d'infrastructures critiques. Approche offensive pour une défense robuste.</p>
+            <h3 style="color: var(--neon-blue);">AUDIT & PENTEST</h3>
+            <p>Analyse offensive des systèmes et tests d'intrusion. Identification des vulnérabilités critiques pour une protection proactive.</p>
         </div>
 
         <div class="card">
-            <h2>DÉVELOPPEMENT LOGICIEL</h2>
-            <p>Conception d'applications mobiles performantes et d'architectures sécurisées. Expertise Dart/Flutter et intégration systèmes.</p>
+            <h3 style="color: var(--neon-green);">DÉVELOPPEMENT APP</h3>
+            <p>Conception d'applications cross-platform avec Flutter/Dart. Focus sur la performance, l'UI/UX et la sécurité du code.</p>
         </div>
 
         <div class="card">
-            <h2>PRODUCTION DIGITALE</h2>
-            <p>Narration visuelle et réalisation audiovisuelle. Gestion de projets créatifs de la pré-production au montage final.</p>
+            <h3 style="color: #ff003c;">PROD. AUDIOVISUELLE</h3>
+            <p>Réalisation de projets cinématographiques et montage pro. De la scénarisation ("Le Reflet") à la post-production digitale.</p>
         </div>
+
+        <div class="card">
+            <h3 style="color: #f1c40f;">IA & AUTOMATISATION</h3>
+            <p>Intégration de modèles d'IA et automatisation de workflows techniques. Optimisation des processus métier via le scripting avancé.</p>
+        </div>
+
     </div>
+
+
+
+
     </header>
 
     <div class="grid">
