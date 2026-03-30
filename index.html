@@ -81,29 +81,49 @@
         </div> 
 
 
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-        
-        <div class="card">
-            <h3 style="color: var(--neon-blue);">AUDIT & PENTEST</h3>
-            <p>Analyse offensive des systèmes et tests d'intrusion. Identification des vulnérabilités critiques pour une protection proactive.</p>
-        </div>
+        <style>
+    /* Ce code va forcer l'alignement propre */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Force 4 colonnes égales */
+        gap: 20px;
+        margin-top: 40px;
+    }
 
-        <div class="card">
-            <h3 style="color: var(--neon-green);">DÉVELOPPEMENT APP</h3>
-            <p>Conception d'applications cross-platform avec Flutter/Dart. Focus sur la performance, l'UI/UX et la sécurité du code.</p>
-        </div>
+    /* Adaptation pour mobile : si l'écran est petit, on empile */
+    @media (max-width: 900px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr); /* 2x2 sur tablettes */
+        }
+    }
+    @media (max-width: 600px) {
+        .grid-container {
+            grid-template-columns: 1fr; /* 1 seule colonne sur téléphone */
+        }
+    }
+</style>
 
-        <div class="card">
-            <h3 style="color: #ff003c;">PROD. AUDIOVISUELLE</h3>
-            <p>Réalisation de projets cinématographiques et montage pro. De la scénarisation ("Le Reflet") à la post-production digitale.</p>
-        </div>
-
-        <div class="card">
-            <h3 style="color: #f1c40f;">IA & AUTOMATISATION</h3>
-            <p>Intégration de modèles d'IA et automatisation de workflows techniques. Optimisation des processus métier via le scripting avancé.</p>
-        </div>
-
+<div class="grid-container">
+    <div class="card">
+        <h3 style="color: var(--neon-blue);">AUDIT & PENTEST</h3>
+        <p>Analyse offensive des systèmes et tests d'intrusion. Identification des vulnérabilités critiques.</p>
     </div>
+
+    <div class="card">
+        <h3 style="color: var(--neon-green);">DÉVELOPPEMENT APP</h3>
+        <p>Conception d'applications cross-platform avec Flutter/Dart. Focus sur la performance et l'UI/UX.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: #ff003c;">PROD. AUDIOVISUELLE</h3>
+        <p>Réalisation de projets cinématographiques et montage pro. De la scénarisation à la post-production.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: #f1c40f;">IA & AUTOMATISATION</h3>
+        <p>Intégration de modèles d'IA et automatisation de workflows. Optimisation via le scripting avancé.</p>
+    </div>
+</div>
 
 
 
