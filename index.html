@@ -11,7 +11,15 @@
     
     <style>
         :root { --neon-blue: #00f2ff; --neon-green: #39ff14; --bg-dark: #050505; --card-bg: rgba(20, 20, 20, 0.8); }
-        
+
+        @media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+       
+ 
+
         body { 
             background-color: var(--bg-dark); 
             background-image: radial-gradient(circle at center, #111 0%, #000 100%);
@@ -78,6 +86,36 @@
     <div id="projets-container" class="grid-container"></div>
 
     <footer class="footer">
+
+<div style="margin-top: 80px; padding: 30px; border-top: 1px dashed #333; background: rgba(10, 10, 10, 0.5);">
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        
+        <div>
+            <h4 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); display: inline-block;">[ MISSION_STATEMENT ]</h4>
+            <p style="font-size: 0.9em; color: #bbb; line-height: 1.6;">
+                <strong>Mousstall Studio</strong> est un laboratoire d'innovation digitale basé à Dakar. 
+                Nous fusionnons la sécurité offensive (Pentest/Audit) avec le développement d'applications 
+                modernes et la production audiovisuelle. Notre but est de créer des solutions robustes 
+                et sécurisées dans un monde numérique en constante évolution.
+            </p>
+        </div>
+
+        <div>
+            <h4 style="color: #888; border-bottom: 1px solid #444; display: inline-block;">[ SÉCURITÉ_&_CONFIDENTIALITÉ ]</h4>
+            <p style="font-size: 0.8em; color: #777; line-height: 1.5;">
+                Ce site est un environnement sécurisé. Nous ne collectons aucune donnée personnelle à votre insu. 
+                Toutes les analyses et tests effectués par le studio suivent une éthique stricte de type "White Hat". 
+                Le code source de ce portfolio est audité pour garantir l'intégrité des visiteurs.
+                <br><br>
+                <em>© 2026 Mousstall Studio - Tous droits réservés.</em>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
         MOUSSTALL_STUDIO // DAKAR_SN // V1.0 // 2026
     </footer>
 </div>
