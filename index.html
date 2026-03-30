@@ -1,4 +1,4 @@
-*<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -70,15 +70,26 @@
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="glitch"><h1>MOUSSTALL STUDIO</h1></div>
-        <p class="typing">> Initializing secure connection...</p>
-        <div class="status-bar">
-            <span>LOCATION: DAKAR_SN</span>
-            <span>OS: LUBUNTU_PRO</span>
-            <span style="color: var(--neon-green);">[PROTECTED]</span>
-        </div> 
+    <div id="projets-container" class="grid-container">
+    </div>
+
+<script>
+    // Le script qui va chercher tes projets dans le JSON
+    fetch('projets.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('projets-container');
+            data.forEach(projet => {
+                container.innerHTML += `
+                    <div class="card" style="border-color: ${projet.couleur}; color: ${projet.couleur};">
+                        <h3>${projet.titre}</h3>
+                        <p style="color: #ccc;">${projet.description}</p>
+                        <a href="${projet.lien}" class="btn-details">EN SAVOIR PLUS</a>
+                    </div>
+                `;
+            });
+        });
+</script>
 
 
         <style>

@@ -1,0 +1,26 @@
+[
+  {
+    "titre": "AUDIT & PENTEST",
+    "description": "Analyse offensive des systèmes et tests d'intrusion.",
+    "lien": "audit.html",
+    "couleur": "#00f2ff"
+  },
+  {
+    "titre": "DÉVELOPPEMENT APP",
+    "description": "Conception d'applications cross-platform avec Flutter/Dart.",
+    "lien": "dev.html",
+    "couleur": "#39ff14"
+  },
+  {
+    "titre": "PROD. AUDIOVISUELLE",
+    "description": "Réalisation de projets cinématographiques et montage pro.",
+    "lien": "le-reflet.html",
+    "couleur": "#ff003c"
+  },
+  {
+    "titre": "IA & AUTOMATISATION",
+    "description": "Intégration de modèles d'IA et scripting avancé.",
+    "lien": "ia.html",
+    "couleur": "#f1c40f"
+  }
+]
