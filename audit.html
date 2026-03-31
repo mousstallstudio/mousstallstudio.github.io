@@ -10,10 +10,10 @@
 
         body { 
             background-color: var(--bg-dark); color: #e0e0e0; 
-            font-family: 'Fira Code', monospace; margin: 0; padding: 0;
+            font-family: 'Fira Code', monospace; margin: 0; padding: 0; overflow-x: hidden;
         }
 
-        /* Effet scanline animé (comme sur l'index) */
+        /* Effet scanline animé */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
@@ -31,43 +31,44 @@
             box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
         }
 
+        .badge-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; justify-content: center; }
+        .badge { 
+            border: 1px solid var(--neon-blue); padding: 5px 12px; font-size: 0.7em; 
+            color: var(--neon-blue); text-transform: uppercase; 
+        }
+
+        .description { line-height: 1.6; color: #bbb; margin: 30px 0; }
+        .highlight { color: #fff; font-weight: bold; }
+
+        .expertise-list { list-style: none; padding-left: 20px; }
+        .expertise-list li::before { content: "• "; color: var(--neon-blue); font-weight: bold; }
+        .expertise-list li { margin-bottom: 10px; color: #ccc; }
+
         /* Le bouton vers ton LABS */
         .lab-access {
             display: block; border: 1px solid var(--neon-blue); color: var(--neon-blue);
             text-align: center; padding: 20px; text-decoration: none;
             background: rgba(0, 242, 255, 0.05); transition: 0.3s;
-            font-weight: bold; margin-bottom: 40px; letter-spacing: 2px;
+            font-weight: bold; margin: 40px 0; letter-spacing: 2px;
         }
         .lab-access:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 25px var(--neon-blue); }
 
         .section-title { 
             color: #fff; border-left: 3px solid var(--neon-blue); 
-            padding-left: 15px; margin-top: 50px; font-size: 1.2em;
+            padding-left: 15px; margin-top: 50px; font-size: 1.1em; display: flex; align-items: center;
         }
-
-        /* Zone où le script injecte les cours */
-        #academy-content { margin-top: 20px; }
 
         .accordion { 
             background: #111; color: var(--neon-blue); cursor: pointer; padding: 18px; 
             width: 100%; text-align: left; border: 1px solid #333; margin-top: 10px;
             font-family: 'Fira Code', monospace; transition: 0.3s;
-            display: flex; justify-content: space-between;
         }
         .accordion:hover { border-color: var(--neon-blue); background: #1a1a1a; }
-        .accordion::after { content: '+'; }
-        .accordion.active::after { content: '-'; }
 
-        .panel { 
-            padding: 20px; display: none; background: rgba(0,0,0,0.8); 
-            border: 1px solid #333; border-top: none; line-height: 1.6;
-        }
+        .panel { padding: 20px; display: none; background: rgba(0,0,0,0.8); border: 1px solid #333; border-top: none; }
 
-        .back-btn {
-            display: inline-block; margin-top: 50px; color: #555; 
-            text-decoration: none; font-size: 0.8em; border-bottom: 1px solid transparent;
-        }
-        .back-btn:hover { color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); }
+        .back-btn { display: inline-block; margin-top: 50px; color: #555; text-decoration: none; font-size: 0.8em; }
+        .back-btn:hover { color: var(--neon-blue); }
     </style>
 </head>
 <body>
@@ -78,30 +79,46 @@
         <p style="color: #666; font-size: 0.8em; margin-top: 10px;">ANALYSE DE VULNÉRABILITÉS & EXPLOITATION</p>
     </header>
 
+    <p class="description highlight">Évaluation critique des infrastructures et rapports de sécurité.</p>
+
+    <div class="badge-container">
+        <span class="badge">Nmap</span>
+        <span class="badge">Metasploit</span>
+        <span class="badge">Burp Suite</span>
+        <span class="badge">Wireshark</span>
+        <span class="badge">Aircrack-ng</span>
+    </div>
+
+    <p class="description">
+        Au sein de <span class="highlight">**Mousstall Studio**</span>, nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
+    </p>
+
+    <h3 style="color: var(--neon-blue); font-size: 1em;">NOS EXPERTISES :</h3>
+    <ul class="expertise-list">
+        <li>Tests d'intrusion (Web & Network Pentesting).</li>
+        <li>Audits de configuration et sécurisation système.</li>
+        <li>Analyse forensic et réponse aux incidents.</li>
+    </ul>
+
     <a href="https://mousstallstudio-labs.github.io" target="_blank" class="lab-access">
         ⚡ CONNECT TO MOUSSTALLSTUDIO-LABS
     </a>
 
-    <h2 class="section-title">📂 ACADÉMIE : COURS & RÉSEAUX</h2>
+    <h2 class="section-title">📂 ACADÉMIE : COURS & MÉTHODOLOGIES</h2>
     
     <div id="academy-content">
-        <p style="color: #444; font-size: 0.9em;">Aucun module chargé. Utilisez ajout_cours.sh pour peupler cette section.</p>
+        <p style="color: #444; font-size: 0.9em; margin-top: 10px;">Aucun module chargé. Utilisez ajout_cours.sh.</p>
     </div>
 
     <a href="index.html" class="back-btn"><< RETURN_TO_BASE</a>
 </div>
 
 <script>
-    // Gestion des accordéons (Identique à la page Dev pour la cohérence)
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('accordion')) {
             e.target.classList.toggle('active');
             var panel = e.target.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
         }
     });
 </script>
