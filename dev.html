@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Développement App | Mousstall Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        body { background: #050505; color: #39ff14; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Développement App | Mousstall Studio
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body { background: #050505; color: #39ff14; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
         .content { max-width: 800px; margin: auto; border: 1px solid #39ff14; padding: 30px; box-shadow: 0 0 20px rgba(57, 255, 20, 0.2); background: rgba(0, 10, 0, 0.8); }
         h1 { border-bottom: 2px solid #39ff14; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
         .tech-stack { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
@@ -14,103 +16,111 @@
         .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
         .back-link:hover { color: #39ff14; text-shadow: 0 0 5px #39ff14; }
         
-        /* --- STYLE ACCORDÉON (VERT NÉON) --- */
         .accordion {
-            background: rgba(57, 255, 20, 0.05);
-            color: #39ff14;
-            cursor: pointer;
-            padding: 15px;
-            width: 100%;
-            text-align: left;
-            border: 1px solid #39ff14;
-            outline: none;
-            transition: 0.4s;
-            font-family: 'Fira Code', monospace;
-            margin-top: 20px;
-            text-transform: uppercase;
-            font-size: 0.9em;
+            background: rgba(57, 255, 20, 0.05); color: #39ff14; cursor: pointer;
+            padding: 15px; width: 100%; text-align: left; border: 1px solid #39ff14;
+            outline: none; transition: 0.4s; font-family: 'Fira Code', monospace;
+            margin-top: 20px; text-transform: uppercase; font-size: 0.9em;
         }
-
-        .active, .accordion:hover {
-            background: #39ff14;
-            color: #000;
-            box-shadow: 0 0 15px #39ff14;
-        }
-
-        .panel {
-            padding: 0 18px;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            overflow: hidden;
-            border: 1px solid #39ff14;
-            border-top: none;
-        }
-
+        .active, .accordion:hover { background: #39ff14; color: #000; box-shadow: 0 0 15px #39ff14; }
+        .panel { padding: 0 18px; background: rgba(0, 0, 0, 0.6); display: none; overflow: hidden; border: 1px solid #39ff14; border-top: none; }
         .lesson { padding: 20px 0; color: #eee; }
         .lesson h3 { color: #39ff14; margin-top: 0; }
-        .exercise-box { background: rgba(57, 255, 20, 0.1); padding: 10px; border-left: 3px solid #39ff14; margin-top: 10px; }
-    </style>
-</head>
-<body>
-    <div class="content">
-        <h1>[ DEV_CENTER : APPLICATIONS ]</h1>
-        <p style="color: #eee;">Conception d'outils numériques performants et sécurisés.</p>
-        
-        <div class="tech-stack">
-            <span class="tag">FLUTTER</span>
-            <span class="tag">DART</span>
-            <span class="tag">PYTHON</span>
-            <span class="tag">GODOT</span>
-            <span class="tag">LINUX_SYSTEMS</span>
-        </div>
-
-        <p style="color: #ccc;">Au sein de **Mousstall Studio**, nous développons des solutions allant de l'application mobile multiplateforme au scripting d'automatisation système.</p>
-        
-        <h3 style="color: #fff;">NOS EXPERTISES :</h3>
-        <ul>
-            <li>Interfaces modernes et fluides avec <strong>Flutter</strong>.</li>
-            <li>Applications sécurisées dès la conception (Security by Design).</li>
-            <li>Développement de prototypes de jeux et simulations interactives.</li>
-        </ul>
-
-        <h3 style="color: #fff; margin-top: 40px;">🚀 ACADÉMIE : DEV_LOGS</h3>
-
-        <button class="accordion">> APPRENDRE : SETUP FLUTTER SUR LUBUNTU</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>🛠️ Installation du SDK</h3>
-                <p>Pour ton Acer sous Lubuntu, extraire le SDK dans <code>~/development</code> et configurer ton fichier <code>.bashrc</code>.</p>
-                <div class="exercise-box">
-                    <strong>💻 EXERCICE :</strong> Tape <code>flutter doctor</code> dans ton terminal et vérifie que toutes les coches sont vertes.
-                </div>
-            </div>
-        </div>
-
-        <button class="accordion">> APPRENDRE : LES BASES DE DART</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>Variables & Fonctions</h3>
-                <p>Apprends à utiliser <code>final</code>, <code>const</code> et les fonctions asynchrones pour des apps rapides.</p>
-            </div>
-        </div>
-
-        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
-    </div>
-
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
+        .exercise-box { background: rgba(57, 255, 20, 0.1); padding: 15px; border-left: 3px solid #39ff14; margin-top: 10px; }
+        .btn-valider { background: transparent; border: 1px solid #39ff14; color: #39ff14; cursor: pointer; padding: 5px 10px; font-family: 'Fira Code'; margin-top: 10px; }
+        .quiz-label { display: block; margin: 5px 0; cursor: pointer; color: #ccc; }
+        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
+  </style>
+ </head>
+ <body>
+  <div class="content">
+   <h1>
+    [ DEV_CENTER : APPLICATIONS ]
+   </h1>
+   <p style="color: #eee;">
+    Conception d'outils numériques performants et sécurisés.
+   </p>
+   <div class="tech-stack">
+    <span class="tag">
+     FLUTTER
+    </span>
+    <span class="tag">
+     DART
+    </span>
+    <span class="tag">
+     PYTHON
+    </span>
+    <span class="tag">
+     GODOT
+    </span>
+    <span class="tag">
+     LINUX_SYSTEMS
+    </span>
+   </div>
+   <p style="color: #ccc;">
+    Au sein de **Mousstall Studio**, nous développons des solutions allant de l'application mobile multiplateforme au scripting d'automatisation système.
+   </p>
+   <h3 style="color: #fff;">
+    NOS EXPERTISES :
+   </h3>
+   <ul>
+    <li>
+     Interfaces modernes et fluides avec
+     <strong>
+      Flutter
+     </strong>
+     .
+    </li>
+    <li>
+     Applications sécurisées dès la conception (Security by Design).
+    </li>
+    <li>
+     Développement de prototypes de jeux et simulations interactives.
+    </li>
+   </ul>
+   <h3 style="color: #fff; margin-top: 40px;">
+    🚀 ACADÉMIE : DEV_LOGS
+   </h3>
+   <div id="academy-content">
+   </div>
+   <a class="back-link" href="index.html">
+    &lt; [ RETOUR_STUDIO ]
+   </a>
+  </div>
+  <script>
+   // Script pour faire fonctionner les accordéons (même les nouveaux)
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('accordion')) {
+                e.target.classList.toggle("active");
+                var panel = e.target.nextElementSibling;
                 if (panel.style.display === "block") {
                     panel.style.display = "none";
                 } else {
                     panel.style.display = "block";
                 }
-            });
+            }
+        });
+
+        // Fonction pour vérifier les réponses du quiz
+        function verifierAuto(btn, repCorrecte) {
+            const box = btn.closest('.exercise-box');
+            const selection = box.querySelector('input:checked');
+            const feedback = box.querySelector('.resultat-mini');
+            
+            if(!selection) {
+                feedback.innerText = ">> ERREUR : AUCUNE ENTREE DETECTEE";
+                feedback.style.color = "orange";
+                return;
+            }
+
+            if(selection.value === repCorrecte) {
+                feedback.innerText = ">> SUCCESS : CODE COMPILE AVEC SUCCES";
+                feedback.style.color = "#39ff14";
+            } else {
+                feedback.innerText = ">> CRITICAL_ERROR : SYNTAXE INCORRECTE";
+                feedback.style.color = "#ff003c";
+            }
         }
-    </script>
-</body>
+  </script>
+ </body>
 </html>

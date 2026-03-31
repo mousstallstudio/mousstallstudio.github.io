@@ -1,75 +1,106 @@
 import os
+import re
+import sys
 from bs4 import BeautifulSoup
 
+def extraire_video_id(url):
+    regex = r'(?:v=|\/v\/|embed\/|youtu\.be\/|\/shorts\/|^)([a-zA-Z0-9_-]{11})'
+    match = re.search(regex, url)
+    return match.group(1) if match else None
+
+def saisie_multiligne(invite):
+    print(f"\n[!] {invite}")
+    print("(Collez votre texte, puis faites ENTREE puis CTRL+D pour valider)")
+    print("-" * 30)
+    # Lit tout jusqu'au Ctrl+D sans fermer le terminal
+    contenu = sys.stdin.read()
+    print("-" * 30)
+    return contenu.strip()
+
 def gerer_audit():
-    print("--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT (V3.1) ---")
     print("1. Ajouter un cours")
     print("2. Supprimer un cours")
     choix = input("Choix (1/2) : ")
 
     try:
+        if not os.path.exists("audit.html"):
+            print("[-] Erreur : audit.html introuvable.")
+            return
+
         with open("audit.html", "r", encoding="utf-8") as f:
-            content = f.read()
-            soup = BeautifulSoup(content, "html.parser")
+            soup = BeautifulSoup(f, "html.parser")
         
         target = soup.find(id="academy-content")
 
         if choix == "1":
             titre = input("Titre du module : ")
-            video_id = input("ID de la vidéo Youtube (ex: PjHqWn0F46A) : ")
-            description = input("Description : ")
+            url_brut = input("Lien YouTube : ")
+            video_id = extraire_video_id(url_brut)
+            
+            if not video_id:
+                print("[-] Erreur : Lien YouTube invalide.")
+                return
+
+            video_url = f"https://www.youtube.com/embed/{video_id}"
+            
+            # APPEL DE LA SAISIE MULTILIGNE
+            description = saisie_multiligne("Description Cyber")
+
+            # RE-OUVERTURE DU FLUX (Nécessaire après sys.stdin.read)
+            # Sur certains Linux, on doit recréer le lien avec le terminal
+            sys.stdin = open('/dev/tty') 
+            
             question = input("Question Quiz : ")
+            opt_a = input("Option A : ")
+            opt_b = input("Option B : ")
+            opt_c = input("Option C : ")
             rep = input("Bonne réponse (A/B/C) : ").upper()
 
-            # On utilise youtube-nocookie pour éviter les blocages
-            video_url = f"https://www.youtube-nocookie.com/embed/{video_id}"
+            quiz_id = titre.replace(" ", "_")
 
-            # Structure avec 'module-container' pour pouvoir supprimer facilement après
-            nouveau_cours = f"""
+            nouveau_html = f"""
             <div class="module-container" data-title="{titre}">
-                <button class="accordion">> MODULE : {titre}</button>
+                <button class="accordion" style="border-left: 4px solid #00f2ff;">> AUDIT_LOG : {titre}</button>
                 <div class="panel">
                     <div class="lesson">
                         <h3>{titre}</h3>
-                        <p>{description}</p>
+                        <p style="white-space: pre-wrap; color: #eee;">{description}</p>
                         <div style="margin: 20px 0; text-align: center;">
-                            <iframe width="100%" height="350" src="{video_url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border: 1px solid #00f2ff;"></iframe>
+                            <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);"></iframe>
                         </div>
-                        <div class="exercise-box">
-                            <h4>🎯 QUIZ</h4>
+                        <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: rgba(0, 242, 255, 0.05); padding: 15px;">
+                            <h4 style="color: #00f2ff;">🎯 MISSION_QUIZ</h4>
                             <p>{question}</p>
                             <ul style="list-style-type: none; padding-left: 0;">
-                                <li><label><input type="radio" name="q_{video_id}" value="A"> A) Option A</label></li>
-                                <li><label><input type="radio" name="q_{video_id}" value="B"> B) Option B</label></li>
-                                <li><label><input type="radio" name="q_{video_id}" value="C"> C) Option C</label></li>
+                                <li><label><input type="radio" name="q_{quiz_id}" value="A"> A) {opt_a}</label></li>
+                                <li><label><input type="radio" name="q_{quiz_id}" value="B"> B) {opt_b}</label></li>
+                                <li><label><input type="radio" name="q_{quiz_id}" value="C"> C) {opt_c}</label></li>
                             </ul>
-                            <button onclick="verifierAuto(this, '{rep}')" style="background:rgba(0,242,255,0.1); border:1px solid #00f2ff; color:#00f2ff; cursor:pointer; padding:5px 15px; margin-top:10px;">VALIDER</button>
-                            <p class="resultat-mini" style="margin-top:10px; font-weight:bold;"></p>
+                            <button class="btn-valider" onclick="alert(document.querySelector('input[name=\\'q_{quiz_id}\\']:checked')?.value === '{rep}' ? '[+] ACCÈS_AUTORISÉ' : '[-] ACCÈS_REFUSÉ')" style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%;">VÉRIFIER L'AUDIT</button>
                         </div>
                     </div>
                 </div>
             </div>
             """
-            target.append(BeautifulSoup(nouveau_cours, "html.parser"))
-            print(f"[+] Module '{titre}' ajouté avec succès.")
+            target.append(BeautifulSoup(nouveau_html, "html.parser"))
+            
+            with open("audit.html", "w", encoding="utf-8") as f:
+                f.write(soup.prettify())
+            
+            print(f"[+] Module '{titre}' injecté avec succès.")
 
         elif choix == "2":
-            titre_a_suppr = input("Titre du module à supprimer (exact) : ")
-            # On cherche la div qui a l'attribut data-title correspondant
+            titre_a_suppr = input("Titre à supprimer : ")
             module = soup.find("div", {"data-title": titre_a_suppr})
-            
             if module:
                 module.decompose()
+                with open("audit.html", "w", encoding="utf-8") as f:
+                    f.write(soup.prettify())
                 print(f"[+] Module '{titre_a_suppr}' supprimé.")
-            else:
-                print("[-] Erreur : Module introuvable. Vérifie l'orthographe.")
-
-        # Sauvegarde propre
-        with open("audit.html", "w", encoding="utf-8") as f:
-            f.write(soup.prettify())
 
     except Exception as e:
-        print(f"[-] Erreur système : {e}")
+        print(f"[-] Erreur critique : {e}")
 
 if __name__ == "__main__":
     gerer_audit()

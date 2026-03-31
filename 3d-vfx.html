@@ -19,39 +19,22 @@
 
         /* ACCORDÉONS */
         .accordion {
-            background: rgba(255, 0, 60, 0.05);
-            color: #ff003c;
-            cursor: pointer;
-            padding: 15px;
-            width: 100%;
-            text-align: left;
-            border: 1px solid #ff003c;
-            outline: none;
-            transition: 0.4s;
-            font-family: 'Fira Code', monospace;
-            margin-top: 20px;
-            text-transform: uppercase;
-            font-size: 0.9em;
+            background: rgba(255, 0, 60, 0.05); color: #ff003c; cursor: pointer;
+            padding: 15px; width: 100%; text-align: left; border: 1px solid #ff003c;
+            outline: none; transition: 0.4s; font-family: 'Fira Code', monospace;
+            margin-top: 20px; text-transform: uppercase; font-size: 0.9em;
         }
 
-        .active, .accordion:hover {
-            background: #ff003c;
-            color: #000;
-            box-shadow: 0 0 15px #ff003c;
-        }
+        .active, .accordion:hover { background: #ff003c; color: #000; box-shadow: 0 0 15px #ff003c; }
 
-        .panel {
-            padding: 0 18px;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            overflow: hidden;
-            border: 1px solid #ff003c;
-            border-top: none;
-        }
-
+        .panel { padding: 0 18px; background: rgba(0, 0, 0, 0.6); display: none; overflow: hidden; border: 1px solid #ff003c; border-top: none; }
         .lesson { padding: 20px 0; color: #eee; }
         .lesson h3 { color: #ff003c; margin-top: 0; }
-        .vfx-box { background: rgba(255, 0, 60, 0.1); padding: 10px; border-left: 3px solid #ff003c; margin-top: 10px; }
+        .vfx-box { background: rgba(255, 0, 60, 0.1); padding: 15px; border-left: 3px solid #ff003c; margin-top: 10px; }
+        
+        /* Styles pour les futurs quiz/vidéos via bot */
+        .btn-valider { background: transparent; border: 1px solid #ff003c; color: #ff003c; cursor: pointer; padding: 5px 10px; font-family: 'Fira Code'; margin-top: 10px; }
+        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -78,41 +61,44 @@
 
         <h3 style="color: #fff; margin-top: 40px;">🎨 ACADÉMIE : RENDER_LOGS</h3>
 
-        <button class="accordion">> APPRENDRE : OPTIMISATION 3D (LOW-POLY)</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>📐 Gérer les polygones</h3>
-                <p>Pour ton Acer Aspire, il est crucial de garder un nombre de polygones bas. Apprends à utiliser le "Decimate Modifier" sur Blender pour réduire la charge CPU.</p>
-                <div class="vfx-box">
-                    <strong>💡 CONSEIL :</strong> Toujours "Baker" tes textures pour éviter de surcharger la RAM de 4 Go lors du rendu.
-                </div>
-            </div>
-        </div>
+        <div id="academy-content">
+            
+                       
 
-        <button class="accordion">> APPRENDRE : RENDU TEMPS RÉEL SUR GODOT</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>🎮 Moteur Godot & Linux</h3>
-                <p>Godot est parfait pour ton Lubuntu car il est très léger. Apprends à configurer l'éclairage "OmniLight" sans faire ramer ton système.</p>
             </div>
-        </div>
 
-        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+        </div> <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
     </div>
 
     <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+        // Gestion des accordéons (délégation d'événement pour le bot)
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('accordion')) {
+                e.target.classList.toggle("active");
+                var panel = e.target.nextElementSibling;
+                panel.style.display = (panel.style.display === "block") ? "none" : "block";
+            }
+        });
+
+        // Fonction pour les futurs quiz de l'académie 3D
+        function verifierAuto(btn, repCorrecte) {
+            const box = btn.closest('.vfx-box') || btn.closest('.exercise-box');
+            const selection = box.querySelector('input:checked');
+            const feedback = box.querySelector('.resultat-mini');
+            
+            if(!selection) {
+                feedback.innerText = ">> STATUS : NO_INPUT";
+                feedback.style.color = "orange";
+                return;
+            }
+
+            if(selection.value === repCorrecte) {
+                feedback.innerText = ">> STATUS : RENDER_SUCCESS";
+                feedback.style.color = "#39ff14"; // On garde le vert pour le succès
+            } else {
+                feedback.innerText = ">> STATUS : SHADER_ERROR";
+                feedback.style.color = "#ff003c";
+            }
         }
     </script>
 </body>
