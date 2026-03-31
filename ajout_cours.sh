@@ -30,14 +30,21 @@ if [ ! -z "$vid_id" ]; then
     VIDEO_HTML="<div style='margin: 15px 0; border: 1px solid $COLOR;'><iframe width='100%' height='315' src='https://www.youtube.com/embed/$vid_id' frameborder='0' allowfullscreen></iframe></div>"
 fi
 
-# 4. Construction du bloc HTML final
-NEW_BLOCK="<button class='accordion'>> $title</button>\n<div class='panel'>\n  <div class='lesson'>\n    <h3>$lesson_h3</h3>\n    <p>$lesson_p</p>\n    $VIDEO_HTML\n    <div class='exercise-box' style='border-left: 3px solid $COLOR; padding: 10px; background: rgba(0,0,0,0.3);'><strong>🛠️ EXERCICE :</strong> $exercise</div>\n  </div>\n</div>"
 
-# 5. Injection (avant le lien de retour)
-sed -i "/class=\"back-link\"/i $NEW_BLOCK" $FILE
+# 4. Construction du bloc HTML (Version compatible Linux/Lubuntu)
+NEW_BLOCK="<button class='accordion' style='border-color:$COLOR; color:$COLOR;'>[ MODULE : $title ]</button>
+<div class='panel' style='border-color:$COLOR;'>
+  <div class='lesson'>
+    <h3 style='color:$COLOR;'>$lesson_h3</h3>
+    <p>$lesson_p</p>
+    $VIDEO_HTML
+    <div style='border-left: 3px solid $COLOR; padding: 10px; background: rgba(255,255,255,0.05); margin-top:10px;'><strong>🛠 EXERCICE :</strong> $exercise</div>
+  </div>
+</div>"
 
-echo "----------------------------------------------"
-echo "✅ Cours avec vidéo ajouté dans $FILE !"
+# 5. Injection (Cible le div academy-content que nous avons mis dans audit.html)
+sed -i "/<div id=\"academy-content\"><\/div>/i $NEW_BLOCK" $FILE
+
 
 # 6. Publication
 read -p "🚀 Publier sur GitHub ? (o/n) : " publish
@@ -46,3 +53,4 @@ if [ "$publish" = "o" ]; then
     git commit -m "Nouveau cours vidéo : $lesson_h3"
     git push origin main
 fi
+

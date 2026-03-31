@@ -3,50 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mousstall Studio | Offensive Security & Dev</title>
+    <title>Mousstall Studio | Cyber Safe</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        :root { --neon-blue: #00f2ff; --neon-green: #39ff14; --bg-dark: #050505; --card-bg: rgba(20, 20, 20, 0.8); }
-        body { background-color: var(--bg-dark); color: #e0e0e0; font-family: 'Fira Code', monospace; margin: 0; padding: 0; overflow-x: hidden; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.06)); background-size: 100% 2px, 3px 100%; pointer-events: none; z-index: 10; }
+        :root { --neon-blue: #00f2ff; --neon-green: #39ff14; --bg-dark: #050505; }
+        
+        body { 
+            background-color: var(--bg-dark); color: #e0e0e0; font-family: 'Fira Code', monospace; 
+            margin: 0; overflow-x: hidden;
+        }
+
+        /* Effet de balayage CRT (Animation) */
+        body::before {
+            content: " "; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%; pointer-events: none; z-index: 10;
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
+
         .container { max-width: 1100px; margin: 60px auto; padding: 20px; position: relative; z-index: 5; }
-        header { text-align: center; border: 1px solid var(--neon-blue); padding: 30px; border-radius: 4px; background: var(--card-bg); margin-bottom: 40px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); border: 1px solid #333; padding: 20px; border-radius: 4px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; min-height: 150px; }
-        .btn-details { display: inline-block; margin-top: 15px; padding: 8px 15px; border: 1px solid currentColor; color: inherit; text-decoration: none; font-size: 0.8em; border-radius: 4px; text-align: center; }
+        
+        header { 
+            text-align: center; border: 1px solid var(--neon-blue); padding: 30px; 
+            background: rgba(0, 242, 255, 0.05); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+
+        .card { 
+            background: rgba(15, 15, 15, 0.9); border: 1px solid #333; padding: 25px; 
+            transition: 0.4s ease; display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        /* Animation au survol */
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 0 20px currentColor;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-details { 
+            margin-top: 20px; padding: 10px; border: 1px solid currentColor; 
+            color: inherit; text-decoration: none; text-align: center; font-size: 0.8em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>MOUSSTALL STUDIO</h1>
-            <p style="color: #888;">LABORATOIRE DE SÉCURITÉ OFFENSIVE</p>
+            <h1 style="letter-spacing: 7px; color: var(--neon-blue);">MOUSSTALL STUDIO</h1>
+            <p>[ SYSTEM_READY ]</p>
         </header>
-
-        <div id="projets-container" class="grid-container">
-            <p>Chargement des modules...</p>
-        </div>
+        <div id="projets-container" class="grid-container"></div>
     </div>
 
     <script>
-        // On définit les projets directement ici pour éviter l'erreur de fichier JSON
         const data = [
             { "titre": "AUDIT & PENTEST", "description": "Sécurité offensive.", "lien": "audit.html", "couleur": "#00f2ff" },
             { "titre": "DÉVELOPPEMENT", "description": "Flutter & Dart.", "lien": "dev.html", "couleur": "#39ff14" },
             { "titre": "IA & AUTOMATION", "description": "Intelligence Artificielle.", "lien": "ia.html", "couleur": "#f1c40f" },
-            { "titre": "LE REFLET", "description": "Storytelling numérique.", "lien": "le-reflet.html", "couleur": "#ff003c" }
+            { "titre": "LE REFLET", "description": "Production visuelle.", "lien": "le-reflet.html", "couleur": "#ff003c" }
         ];
 
         const container = document.getElementById('projets-container');
-        container.innerHTML = ""; 
         data.forEach(p => {
             container.innerHTML += `
                 <div class="card" style="border-color: ${p.couleur}; color: ${p.couleur};">
-                    <div><h3>${p.titre}</h3><p style="color: #ccc;">${p.description}</p></div>
-                    <a href="${p.lien}" class="btn-details">ACCÉDER</a>
+                    <div><h3>${p.titre}</h3><p style="color: #bbb;">${p.description}</p></div>
+                    <a href="${p.lien}" class="btn-details">ACCÉDER_AU_MODULE</a>
                 </div>`;
         });
     </script>
 </body>
 </html>
-
