@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   IA &amp; Automation | Mousstall Studio
-  </title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
-        .content { max-width: 800px; margin: auto; border: 1px solid #f1c40f; padding: 30px; box-shadow: 0 0 20px rgba(241, 196, 15, 0.2); background: rgba(10, 10, 0, 0.8); }
-        h1 { border-bottom: 2px solid #f1c40f; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .status { color: #f1c40f; font-weight: bold; background: rgba(241, 196, 15, 0.1); padding: 5px 10px; border-radius: 4px; border: 1px solid #f1c40f; }
-        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>IA & Automation | Mousstall Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+    <style>
+        body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; padding: 20px; line-height: 1.6; margin: 0; }
+        
+        .content { 
+            max-width: 850px; margin: auto; border: 1px solid #f1c40f; padding: 25px; 
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.2); background: rgba(10, 10, 0, 0.8); 
+        }
+
+        h1 { border-bottom: 2px solid #f1c40f; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.3rem; }
+        
+        .status { 
+            color: #f1c40f; font-weight: bold; background: rgba(241, 196, 15, 0.1); 
+            padding: 5px 10px; border-radius: 4px; border: 1px solid #f1c40f; font-size: 0.8em;
+        }
+
+        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; font-size: 0.9em; }
         .back-link:hover { color: #f1c40f; text-shadow: 0 0 5px #f1c40f; }
 
         /* ACCORDÉONS */
@@ -20,88 +28,87 @@
             background: rgba(241, 196, 15, 0.05); color: #f1c40f; cursor: pointer;
             padding: 15px; width: 100%; text-align: left; border: 1px solid #f1c40f;
             outline: none; transition: 0.4s; font-family: 'Fira Code', monospace;
-            margin-top: 20px; text-transform: uppercase; font-size: 0.9em;
+            margin-top: 15px; text-transform: uppercase; font-size: 0.85em;
         }
-
         .active, .accordion:hover { background: #f1c40f; color: #000; box-shadow: 0 0 15px #f1c40f; }
 
-        .panel { padding: 0 18px; background: rgba(0, 0, 0, 0.6); display: none; overflow: hidden; border: 1px solid #f1c40f; border-top: none; }
-        .lesson { padding: 20px 0; color: #eee; }
-        .lesson h3 { color: #f1c40f; margin-top: 0; }
-        .lab-note { background: rgba(241, 196, 15, 0.1); padding: 15px; border-left: 3px solid #f1c40f; margin-top: 10px; font-size: 0.9em; }
+        .panel { padding: 15px; background: rgba(0, 0, 0, 0.6); display: none; border: 1px solid #f1c40f; border-top: none; }
         
-        /* Styles pour les futurs quiz via bot */
-        .btn-valider { background: transparent; border: 1px solid #f1c40f; color: #f1c40f; cursor: pointer; padding: 5px 10px; font-family: 'Fira Code'; margin-top: 10px; }
-        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
-        .quiz-label { display: block; margin: 5px 0; cursor: pointer; color: #ccc; }
-  </style>
- </head>
- <body>
-  <div class="content">
-   <h1>
-    [ MOUSSTALL_LABS : IA ]
-   </h1>
-   <p>
-    <span class="status">
-     STATUS : EN DÉVELOPPEMENT
-    </span>
-   </p>
-   <p style="color: #eee;">
-    L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.
-   </p>
-   <p style="color: #ccc;">
-    Nos axes de recherche actuels :
-   </p>
-   <ul>
-    <li>
-     Automatisation de scans de vulnérabilités via Python.
-    </li>
-    <li>
-     Génération de scripts de défense active assistée par LLM.
-    </li>
-    <li>
-     Optimisation des workflows de développement Dart/Flutter.
-    </li>
-   </ul>
-   <h3 style="color: #fff; margin-top: 40px;">
-    🧠 ACADÉMIE : AI_RESEARCH
-   </h3>
-   <div id="academy-content">
-   </div>
-   <a class="back-link" href="index.html">
-    &lt; [ RETOUR_STUDIO ]
-   </a>
-  </div>
-  <script>
-   // Gestion des accordéons (délégation d'événement)
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('accordion')) {
-                e.target.classList.toggle("active");
-                var panel = e.target.nextElementSibling;
-                panel.style.display = (panel.style.display === "block") ? "none" : "block";
-            }
-        });
+        .lesson h3 { color: #f1c40f; margin-top: 0; font-size: 1.1rem; }
+        
+        .lab-note { background: rgba(241, 196, 15, 0.05); padding: 15px; border-left: 3px solid #f1c40f; margin-top: 15px; }
+        
+        iframe { width: 100%; height: 350px; border: 1px solid #f1c40f; margin: 10px 0; }
 
-        // Fonction de vérification des quiz IA
-        function verifierAuto(btn, repCorrecte) {
-            const box = btn.closest('.lab-note') || btn.closest('.exercise-box');
-            const selection = box.querySelector('input:checked');
-            const feedback = box.querySelector('.resultat-mini');
-            
-            if(!selection) {
-                feedback.innerText = ">> STATUS : NO_INPUT";
-                feedback.style.color = "orange";
-                return;
-            }
-
-            if(selection.value === repCorrecte) {
-                feedback.innerText = ">> STATUS : NEURAL_MATCH_FOUND";
-                feedback.style.color = "#39ff14"; 
-            } else {
-                feedback.innerText = ">> STATUS : LOGIC_ERROR";
-                feedback.style.color = "#ff003c";
-            }
+        .btn-valider { 
+            background: transparent; border: 1px solid #f1c40f; color: #f1c40f; 
+            cursor: pointer; padding: 10px; width: 100%; font-family: 'Fira Code'; margin-top: 10px; 
         }
-  </script>
- </body>
+        .btn-valider:hover { background: #f1c40f; color: #000; font-weight: bold; }
+
+        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
+        .quiz-label { display: block; margin: 8px 0; cursor: pointer; color: #ccc; font-size: 0.9em; }
+
+        /* --- PATCH MOBILE --- */
+        @media screen and (max-width: 600px) {
+            body { padding: 10px; }
+            .content { padding: 15px; }
+            h1 { font-size: 1.1rem; }
+            iframe { height: 210px; }
+            .accordion { font-size: 0.75em; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h1>[ MOUSSTALL_LABS : IA ]</h1>
+    <p><span class="status">STATUS : EN DÉVELOPPEMENT</span></p>
+    
+    <p style="color: #eee; font-size: 0.9em;">L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.</p>
+    
+    <p style="color: #ccc; font-size: 0.9em;">Nos axes de recherche :</p>
+    <ul style="font-size: 0.9em; color: #ccc;">
+        <li>Automatisation de scans via Python.</li>
+        <li>Génération de scripts via LLM.</li>
+        <li>Optimisation de workflows Flutter.</li>
+    </ul>
+
+    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🧠 ACADÉMIE : AI_RESEARCH</h3>
+    
+    <div id="academy-content">
+        </div>
+
+    <a class="back-link" href="index.html">< [ RETOUR_STUDIO ]</a>
+</div>
+
+<script>
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('accordion')) {
+            e.target.classList.toggle("active");
+            var panel = e.target.nextElementSibling;
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+        }
+    });
+
+    function verifierAuto(btn, repCorrecte) {
+        const box = btn.closest('.lab-note') || btn.closest('.exercise-box');
+        const selection = box.querySelector('input:checked');
+        const feedback = box.querySelector('.resultat-mini');
+        
+        if(!selection) {
+            feedback.innerText = ">> STATUS : NO_INPUT";
+            feedback.style.color = "orange";
+            return;
+        }
+
+        if(selection.value === repCorrecte) {
+            feedback.innerText = ">> STATUS : NEURAL_MATCH_FOUND";
+            feedback.style.color = "#39ff14"; 
+        } else {
+            feedback.innerText = ">> STATUS : LOGIC_ERROR";
+            feedback.style.color = "#ff003c";
+        }
+    }
+</script>
+</body>
 </html>
