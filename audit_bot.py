@@ -17,7 +17,7 @@ def saisie_multiligne(invite):
     return contenu.strip()
 
 def gerer_audit():
-    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT (V3.2) ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT (V3.3) ---")
     print("1. Ajouter un cours")
     print("2. Supprimer un cours")
     choix = input("Choix (1/2) : ")
@@ -42,10 +42,8 @@ def gerer_audit():
                 return
 
             video_url = f"https://www.youtube.com/embed/{video_id}"
-            
             description = saisie_multiligne("Description Cyber")
 
-            # RE-OUVERTURE DU FLUX
             sys.stdin = open('/dev/tty') 
             
             question = input("Question Quiz : ")
@@ -56,20 +54,16 @@ def gerer_audit():
 
             quiz_id = titre.replace(" ", "_")
 
-            # --- STRUCTURE MODIFIÉE : VIDÉO AVANT TEXTE ---
             nouveau_html = f"""
             <div class="module-container" data-title="{titre}">
                 <button class="accordion" style="border-left: 4px solid #00f2ff;">> AUDIT_LOG : {titre}</button>
                 <div class="panel">
                     <div class="lesson">
                         <h3>{titre}</h3>
-                        
                         <div style="margin: 20px 0; text-align: center;">
                             <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);"></iframe>
                         </div>
-
                         <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">{description}</p>
-                        
                         <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: rgba(0, 242, 255, 0.05); padding: 15px;">
                             <h4 style="color: #00f2ff;">🎯 MISSION_QUIZ</h4>
                             <p>{question}</p>
@@ -88,17 +82,46 @@ def gerer_audit():
             
             with open("audit.html", "w", encoding="utf-8") as f:
                 f.write(soup.prettify())
-            
-            print(f"[+] Module '{titre}' injecté avec succès (Format Vidéo-First).")
+            print(f"[+] Module '{titre}' injecté avec succès.")
 
         elif choix == "2":
-            titre_a_suppr = input("Titre à supprimer : ")
+            # --- LISTAGE DES MODULES ---
+            modules = soup.find_all("div", class_="module-container")
+            
+            if not modules:
+                print("\n[-] Aucun module trouvé dans audit.html.")
+                return
+
+            print("\n--- MODULES D'AUDIT DISPONIBLES ---")
+            liste_titres = []
+            for idx, mod in enumerate(modules, 1):
+                t = mod.get("data-title")
+                liste_titres.append(t)
+                print(f"{idx}. {t}")
+            print("-" * 35)
+
+            saisie = input("\nEntrez le NUMÉRO ou le TITRE à supprimer : ")
+
+            # Vérification si c'est un index numérique ou un texte
+            if saisie.isdigit():
+                index = int(saisie) - 1
+                if 0 <= index < len(liste_titres):
+                    titre_a_suppr = liste_titres[index]
+                else:
+                    print("[-] Numéro invalide.")
+                    return
+            else:
+                titre_a_suppr = saisie
+
+            # --- SUPPRESSION ---
             module = soup.find("div", {"data-title": titre_a_suppr})
             if module:
                 module.decompose()
                 with open("audit.html", "w", encoding="utf-8") as f:
                     f.write(soup.prettify())
-                print(f"[+] Module '{titre_a_suppr}' supprimé.")
+                print(f"[+] Module '{titre_a_suppr}' supprimé avec succès.")
+            else:
+                print(f"[-] Erreur : Module '{titre_a_suppr}' introuvable.")
 
     except Exception as e:
         print(f"[-] Erreur critique : {e}")

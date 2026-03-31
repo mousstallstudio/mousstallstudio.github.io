@@ -17,7 +17,7 @@ def saisie_multiligne(invite):
     return contenu.strip()
 
 def gerer_ia():
-    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE IA (V2.1 - Vidéo First) ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE IA (V2.2 - List & Delete) ---")
     print("1. Ajouter un module de recherche")
     print("2. Supprimer un module")
     choix = input("Choix (1/2) : ")
@@ -42,7 +42,6 @@ def gerer_ia():
                 return
 
             video_url = f"https://www.youtube.com/embed/{video_id}"
-            
             desc = saisie_multiligne("Description du module IA")
             
             # Ré-ouverture du flux clavier pour Lubuntu
@@ -56,27 +55,23 @@ def gerer_ia():
 
             quiz_id = titre.replace(" ", "_")
 
-            # --- STRUCTURE MODIFIÉE : VIDÉO AVANT TEXTE ---
             nouveau_cours = f"""
             <div class="module-container" data-title="{titre}">
                 <button class="accordion" style="border-left: 4px solid #f1c40f;">> AI_LOG : {titre}</button>
                 <div class="panel">
                     <div class="lesson">
                         <h3>{titre}</h3>
-
                         <div style="margin: 20px 0; text-align: center;">
                             <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #f1c40f; box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);"></iframe>
                         </div>
-
                         <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">{desc}</p>
-                        
                         <div class="lab-note" style="border-left: 3px solid #f1c40f;">
                             <h4 style="color: #f1c40f;">🧠 NEURAL_TEST</h4>
                             <p>{ques}</p>
                             <ul style="list-style-type: none; padding-left: 0;">
                                 <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="A"> A) {opt_a}</label></li>
                                 <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="B"> B) {opt_b}</label></li>
-                                <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="C) {opt_c}</label></li>
+                                <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="C"> C) {opt_c}</label></li>
                             </ul>
                             <button class="btn-valider" style="border-color: #f1c40f; color: #f1c40f;" onclick="verifierAuto(this, '{rep}')">EXECUTER L'ANALYSE</button>
                             <p class="resultat-mini"></p>
@@ -86,15 +81,45 @@ def gerer_ia():
             </div>
             """
             target.append(BeautifulSoup(nouveau_cours, "html.parser"))
-            print(f"[+] Module IA '{titre}' synchronisé (Format Vidéo-First).")
+            print(f"[+] Module IA '{titre}' synchronisé.")
 
         elif choix == "2":
-            titre_a_suppr = input("Titre à supprimer : ")
+            # --- SCAN DES MODULES IA ---
+            modules = soup.find_all("div", class_="module-container")
+            
+            if not modules:
+                print("\n[-] Aucun module trouvé dans ia.html.")
+                return
+
+            print("\n--- MODULES IA DISPONIBLES ---")
+            liste_titres = []
+            for idx, mod in enumerate(modules, 1):
+                t = mod.get("data-title")
+                liste_titres.append(t)
+                print(f"{idx}. {t}")
+            print("-" * 35)
+
+            saisie = input("\nNuméro ou Titre exact à déconnecter : ")
+
+            if saisie.isdigit():
+                index = int(saisie) - 1
+                if 0 <= index < len(liste_titres):
+                    titre_a_suppr = liste_titres[index]
+                else:
+                    print("[-] Index invalide.")
+                    return
+            else:
+                titre_a_suppr = saisie
+
+            # --- SUPPRESSION ---
             module = soup.find("div", {"data-title": titre_a_suppr})
             if module:
                 module.decompose()
                 print(f"[+] Module '{titre_a_suppr}' déconnecté.")
+            else:
+                print(f"[-] Erreur : '{titre_a_suppr}' introuvable.")
 
+        # Sauvegarde
         with open("ia.html", "w", encoding="utf-8") as f:
             f.write(soup.prettify())
 
