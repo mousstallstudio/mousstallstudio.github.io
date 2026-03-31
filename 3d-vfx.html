@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D & VFX | Mousstall Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* THÈME ROUGE NÉON / CYBERPUNK */
+        body { background: #050505; color: #ff003c; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
+        .content { max-width: 800px; margin: auto; border: 1px solid #ff003c; padding: 30px; box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); background: rgba(10, 0, 0, 0.8); }
+        h1 { border-bottom: 2px solid #ff003c; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .tech-stack { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .tag { background: rgba(255, 0, 60, 0.1); border: 1px solid #ff003c; padding: 3px 10px; border-radius: 4px; font-size: 0.8em; }
+        
+        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
+        .back-link:hover { color: #ff003c; text-shadow: 0 0 5px #ff003c; }
+
+        /* ACCORDÉONS */
+        .accordion {
+            background: rgba(255, 0, 60, 0.05);
+            color: #ff003c;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #ff003c;
+            outline: none;
+            transition: 0.4s;
+            font-family: 'Fira Code', monospace;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .active, .accordion:hover {
+            background: #ff003c;
+            color: #000;
+            box-shadow: 0 0 15px #ff003c;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            overflow: hidden;
+            border: 1px solid #ff003c;
+            border-top: none;
+        }
+
+        .lesson { padding: 20px 0; color: #eee; }
+        .lesson h3 { color: #ff003c; margin-top: 0; }
+        .vfx-box { background: rgba(255, 0, 60, 0.1); padding: 10px; border-left: 3px solid #ff003c; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>[ 3D_VFX_LAB ]</h1>
+        <p style="color: #eee;">Modélisation, rendu temps réel et effets visuels numériques.</p>
+        
+        <div class="tech-stack">
+            <span class="tag">GODOT_ENGINE</span>
+            <span class="tag">BLENDER</span>
+            <span class="tag">VFX_SHADERS</span>
+            <span class="tag">REAL-TIME_RENDER</span>
+            <span class="tag">LINUX_GFX</span>
+        </div>
+
+        <p style="color: #ccc;">Au sein de **Mousstall Studio**, nous explorons la création d'environnements immersifs et d'actifs 3D optimisés pour le web et le jeu vidéo.</p>
+        
+        <h3 style="color: #fff;">NOS AXES DE CRÉATION :</h3>
+        <ul>
+            <li>Modélisation d'actifs "Low-Poly" optimisés pour les performances.</li>
+            <li>Programmation de Shaders personnalisés pour des rendus uniques.</li>
+            <li>Intégration d'effets visuels (VFX) dans des environnements interactifs.</li>
+        </ul>
+
+        <h3 style="color: #fff; margin-top: 40px;">🎨 ACADÉMIE : RENDER_LOGS</h3>
+
+        <button class="accordion">> APPRENDRE : OPTIMISATION 3D (LOW-POLY)</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>📐 Gérer les polygones</h3>
+                <p>Pour ton Acer Aspire, il est crucial de garder un nombre de polygones bas. Apprends à utiliser le "Decimate Modifier" sur Blender pour réduire la charge CPU.</p>
+                <div class="vfx-box">
+                    <strong>💡 CONSEIL :</strong> Toujours "Baker" tes textures pour éviter de surcharger la RAM de 4 Go lors du rendu.
+                </div>
+            </div>
+        </div>
+
+        <button class="accordion">> APPRENDRE : RENDU TEMPS RÉEL SUR GODOT</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>🎮 Moteur Godot & Linux</h3>
+                <p>Godot est parfait pour ton Lubuntu car il est très léger. Apprends à configurer l'éclairage "OmniLight" sans faire ramer ton système.</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
