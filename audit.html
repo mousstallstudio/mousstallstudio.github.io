@@ -1,126 +1,122 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audit & Pentest | Mousstall Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <style>
-        :root { --neon-blue: #00f2ff; --bg-dark: #050505; --card-bg: rgba(20, 20, 20, 0.8); }
-
-        body { 
-            background-color: var(--bg-dark); color: #e0e0e0; 
-            font-family: 'Fira Code', monospace; margin: 0; padding: 0; overflow-x: hidden;
+        /* Style identique à DEV mais en BLEU NÉON */
+        body { background: #050505; color: #00f2ff; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
+        
+        /* Le fameux carré qui entoure tout le contenu */
+        .content { 
+            max-width: 800px; margin: auto; border: 1px solid #00f2ff; padding: 30px; 
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); background: rgba(0, 5, 10, 0.8); 
         }
 
-        /* Effet scanline animé */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 3px, 3px 100%; pointer-events: none; z-index: 10;
-            animation: scanline 10s linear infinite;
+        h1 { border-bottom: 2px solid #00f2ff; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        /* Les rectangles autour des textes (tags) */
+        .tech-stack { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .tag { background: rgba(0, 242, 255, 0.1); border: 1px solid #00f2ff; padding: 3px 10px; border-radius: 4px; font-size: 0.8em; }
+        
+        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
+        .back-link:hover { color: #00f2ff; text-shadow: 0 0 5px #00f2ff; }
+        
+        /* --- STYLE ACCORDÉON (BLEU NÉON) --- */
+        .accordion {
+            background: rgba(0, 242, 255, 0.05);
+            color: #00f2ff;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #00f2ff;
+            outline: none;
+            transition: 0.4s;
+            font-family: 'Fira Code', monospace;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.9em;
         }
-        @keyframes scanline { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
 
-        .container { max-width: 900px; margin: 40px auto; padding: 20px; position: relative; z-index: 5; }
-
-        header { 
-            text-align: center; border: 1px solid var(--neon-blue); padding: 25px; 
-            background: var(--card-bg); margin-bottom: 30px;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+        .active, .accordion:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 15px #00f2ff;
         }
 
-        .badge-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; justify-content: center; }
-        .badge { 
-            border: 1px solid var(--neon-blue); padding: 5px 12px; font-size: 0.7em; 
-            color: var(--neon-blue); text-transform: uppercase; 
+        .panel {
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            overflow: hidden;
+            border: 1px solid #00f2ff;
+            border-top: none;
         }
 
-        .description { line-height: 1.6; color: #bbb; margin: 30px 0; }
-        .highlight { color: #fff; font-weight: bold; }
+        .lesson { padding: 20px 0; color: #eee; }
+        .lesson h3 { color: #00f2ff; margin-top: 0; }
+        .exercise-box { background: rgba(0, 242, 255, 0.1); padding: 10px; border-left: 3px solid #00f2ff; margin-top: 10px; }
 
-        .expertise-list { list-style: none; padding-left: 20px; }
-        .expertise-list li::before { content: "> "; color: var(--neon-blue); font-weight: bold; }
-        .expertise-list li { margin-bottom: 10px; color: #ccc; }
-
-        /* Le lien corrigé vers Mousstall-Labs */
-        .lab-access {
-            display: block; border: 1px solid var(--neon-blue); color: var(--neon-blue);
-            text-align: center; padding: 20px; text-decoration: none;
+        /* Bouton Spécial Labos */
+        .lab-btn {
+            display: block; text-align: center; border: 1px solid #00f2ff; padding: 15px;
+            margin: 20px 0; text-decoration: none; color: #00f2ff; font-weight: bold;
             background: rgba(0, 242, 255, 0.05); transition: 0.3s;
-            font-weight: bold; margin: 40px 0; letter-spacing: 2px;
         }
-        .lab-access:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 25px var(--neon-blue); }
-
-        .section-title { 
-            color: #fff; border-left: 3px solid var(--neon-blue); 
-            padding-left: 15px; margin-top: 50px; font-size: 1.1em;
-        }
-
-        .accordion { 
-            background: #111; color: var(--neon-blue); cursor: pointer; padding: 18px; 
-            width: 100%; text-align: left; border: 1px solid #333; margin-top: 10px;
-            font-family: 'Fira Code', monospace; transition: 0.3s;
-        }
-        .accordion:hover { border-color: var(--neon-blue); background: #1a1a1a; }
-
-        .panel { padding: 20px; display: none; background: rgba(0,0,0,0.8); border: 1px solid #333; border-top: none; }
-
-        .back-btn { display: inline-block; margin-top: 50px; color: #555; text-decoration: none; font-size: 0.8em; }
-        .back-btn:hover { color: var(--neon-blue); }
+        .lab-btn:hover { background: #00f2ff; color: #000; box-shadow: 0 0 20px #00f2ff; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <h1 style="color: var(--neon-blue); margin:0; letter-spacing: 4px;">[ MODULE_AUDIT ]</h1>
-        <p style="color: #666; font-size: 0.8em; margin-top: 10px;">ANALYSE DE VULNÉRABILITÉS & EXPLOITATION</p>
-    </header>
-
-    <p class="description highlight">Évaluation critique des infrastructures et rapports de sécurité offensive.</p>
-
-    <div class="badge-container">
-        <span class="badge">Nmap</span>
-        <span class="badge">Metasploit</span>
-        <span class="badge">Burp Suite</span>
-        <span class="badge">Wireshark</span>
-        <span class="badge">Linux_Systems</span>
-    </div>
-
-    <p class="description">
-        Au sein de <span class="highlight">**Mousstall Studio**</span>, nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
-    </p>
-
-    <h3 style="color: var(--neon-blue); font-size: 1em;">NOS EXPERTISES :</h3>
-    <ul class="expertise-list">
-        <li>Tests d'intrusion (Web & Network Pentesting).</li>
-        <li>Audits de configuration et sécurisation "Security by Design".</li>
-        <li>Analyse forensic et réponse aux incidents.</li>
-    </ul>
-
-    <a href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank" class="lab-access">
-        ⚡ ACCESS MOUSSTALL-LABS REPOSITORY
-    </a>
-
-    <h2 class="section-title">🚀 ACADÉMIE : PENTEST_LOGS sur audit</h2>
-    
-    <div id="academy-content">
+    <div class="content">
+        <h1>[ MODULE_AUDIT ]</h1>
+        <p style="color: #eee;">Analyse de vulnérabilités et rapports de sécurité offensive.</p>
+        
+        <div class="tech-stack">
+            <span class="tag">NMAP</span>
+            <span class="tag">METASPLOIT</span>
+            <span class="tag">BURP_SUITE</span>
+            <span class="tag">WIRESHARK</span>
+            <span class="tag">LINUX_SYSTEMS</span>
         </div>
 
-    <a href="index.html" class="back-btn"><< RETURN_TO_BASE</a>
-</div>
+        <p style="color: #ccc;">Au sein de **Mousstall Studio**, nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.</p>
+        
+        <h3 style="color: #fff;">NOS EXPERTISES :</h3>
+        <ul>
+            <li>Tests d'intrusion (Web & Network Pentesting).</li>
+            <li>Audits de configuration et sécurisation "Security by Design".</li>
+            <li>Analyse forensic et réponse aux incidents.</li>
+        </ul>
 
-<script>
-    document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('accordion')) {
-            e.target.classList.toggle('active');
-            var panel = e.target.nextElementSibling;
-            panel.style.display = (panel.style.display === "block") ? "none" : "block";
-        }
-    });
-</script>
+        <a href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank" class="lab-btn">
+            ⚡ ACCÉDER AU LABO DE PENTEST (REPO GITHUB)
+        </a>
 
+        <h3 style="color: #fff; margin-top: 40px;">🚀 ACADÉMIE : PENTEST_LOGS</h3>
+
+        <div id="academy-content">
+            <p style="color: #444; font-size: 0.8em;">Aucun module chargé. Utilise ajout_cours.sh.</p>
+        </div>
+
+        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+    </div>
+
+    <script>
+        // Script identique pour faire fonctionner les accordéons
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('accordion')) {
+                e.target.classList.toggle('active');
+                var panel = e.target.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            }
+        });
+    </script>
 </body>
 </html>
