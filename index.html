@@ -6,152 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mousstall Studio : Expertise en cybersécurité, pentesting et développement d'applications Flutter à Dakar, Sénégal.">
     <title>Mousstall Studio | Offensive Security & Dev</title>
-    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
-    
     <style>
         :root { --neon-blue: #00f2ff; --neon-green: #39ff14; --bg-dark: #050505; --card-bg: rgba(20, 20, 20, 0.8); }
-
-        @media (max-width: 768px) {
-    div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-    }
-}
-       
- 
-
-        body { 
-            background-color: var(--bg-dark); 
-            background-image: radial-gradient(circle at center, #111 0%, #000 100%);
-            color: #e0e0e0; 
-            font-family: 'Fira Code', monospace; 
-            margin: 0; padding: 0; overflow-x: hidden;
-        }
-
-        /* Effet scanline */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%; pointer-events: none; z-index: 10;
-        }
-
+        body { background-color: var(--bg-dark); color: #e0e0e0; font-family: 'Fira Code', monospace; margin: 0; padding: 0; overflow-x: hidden; }
         .container { max-width: 1100px; margin: 60px auto; padding: 20px; position: relative; z-index: 5; }
-
-        header { 
-            text-align: center; border: 1px solid var(--neon-blue); padding: 30px; 
-            border-radius: 4px; background: var(--card-bg); margin-bottom: 40px;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
-        }
-
+        header { text-align: center; border: 1px solid var(--neon-blue); padding: 30px; border-radius: 4px; background: var(--card-bg); margin-bottom: 40px; box-shadow: 0 0 20px rgba(0, 242, 255, 0.1); }
         h1 { font-size: 2.2em; letter-spacing: 5px; text-transform: uppercase; margin: 0; color: var(--neon-blue); }
-
-        /* Grille Responsive */
-        .grid-container { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; 
-        }
-
+        .grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         @media (max-width: 1000px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .grid-container { grid-template-columns: 1fr; } }
-
-        .card { 
-            background: var(--card-bg); border: 1px solid #333; padding: 20px; border-radius: 4px; 
-            transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;
-        }
-
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-color: inherit; }
-
-        .btn-details {
-            display: inline-block; margin-top: 15px; padding: 8px 15px;
-            background: transparent; border: 1px solid currentColor;
-            color: inherit; text-decoration: none; font-size: 0.8em;
-            border-radius: 4px; transition: 0.3s; text-align: center;
-        }
-
-        .btn-details:hover { background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 10px currentColor; }
-
-        .footer { text-align: center; margin-top: 60px; padding: 20px; color: #555; font-size: 0.8em; }
+        .card { background: var(--card-bg); border: 1px solid #333; padding: 20px; border-radius: 4px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .btn-details { display: inline-block; margin-top: 15px; padding: 8px 15px; border: 1px solid currentColor; color: inherit; text-decoration: none; font-size: 0.8em; border-radius: 4px; text-align: center; }
+        .footer-info { margin-top: 80px; padding: 30px; border-top: 1px dashed #333; background: rgba(10, 10, 10, 0.5); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 768px) { .footer-info { grid-template-columns: 1fr; } }
+        .social-bar { text-align: center; margin-top: 60px; padding: 20px; border: 1px solid #222; background: rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1 class="typing">MOUSSTALL STUDIO</h1>
+        <h1>MOUSSTALL STUDIO</h1>
         <p style="color: #888;">OFFENSIVE SECURITY & DIGITAL CREATION</p>
     </header>
 
     <div id="projets-container" class="grid-container"></div>
 
-    <footer class="footer">
-
-<div style="margin-top: 80px; padding: 30px; border-top: 1px dashed #333; background: rgba(10, 10, 10, 0.5);">
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        
+    <div class="footer-info">
         <div>
-            <h4 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); display: inline-block;">[ MISSION_STATEMENT ]</h4>
-            <p style="font-size: 0.9em; color: #bbb; line-height: 1.6;">
-                <strong>Mousstall Studio</strong> est un laboratoire d'innovation digitale basé à Dakar. 
-                Nous fusionnons la sécurité offensive (Pentest/Audit) avec le développement d'applications 
-                modernes et la production audiovisuelle. Notre but est de créer des solutions robustes 
-                et sécurisées dans un monde numérique en constante évolution.
-            </p>
+            <h4 style="color: var(--neon-blue);">[ MISSION_STATEMENT ]</h4>
+            <p style="font-size: 0.9em; color: #bbb;">Mousstall Studio est un laboratoire d'innovation à Dakar, fusionnant sécurité offensive et création digitale.</p>
         </div>
-
         <div>
-            <h4 style="color: #888; border-bottom: 1px solid #444; display: inline-block;">[ SÉCURITÉ_&_CONFIDENTIALITÉ ]</h4>
-            <p style="font-size: 0.8em; color: #777; line-height: 1.5;">
-                Ce site est un environnement sécurisé. Nous ne collectons aucune donnée personnelle à votre insu. 
-                Toutes les analyses et tests effectués par le studio suivent une éthique stricte de type "White Hat". 
-                Le code source de ce portfolio est audité pour garantir l'intégrité des visiteurs.
-                <br><br>
-                <em>© 2026 Mousstall Studio - Tous droits réservés.</em>
-            </p>
+            <h4 style="color: #888;">[ SÉCURITÉ ]</h4>
+            <p style="font-size: 0.8em; color: #777;">Éthique White Hat stricte. © 2026 Mousstall Studio.</p>
         </div>
-
     </div>
-</div>
 
-
-        MOUSSTALL_STUDIO // DAKAR_SN // V1.0 // 2026
-    </footer>
-</div>
-
-
-<div style="text-align: center; margin-top: 60px; padding: 20px; border: 1px solid #222; background: rgba(0,0,0,0.3); position: relative; z-index: 5;">
-        <h4 style="color: #666; font-size: 0.7em; letter-spacing: 3px; margin-bottom: 15px;">[ CONNECT_TO_NETWORK ]</h4>
-        <div style="display: flex; justify-content: center; gap: 30px; font-size: 1.1em; flex-wrap: wrap;">
+    <div class="social-bar">
+        <h4 style="color: #666; font-size: 0.7em;">[ CONNECT_TO_NETWORK ]</h4>
+        <div style="display: flex; justify-content: center; gap: 30px;">
             <a href="https://github.com/mousstallstudio" target="_blank" style="color: var(--neon-green); text-decoration: none;">#GITHUB</a>
-            <a href="https://x.com/mousstallstudio" target="_blank" style="color: #1DA1F2; text-decoration: none;">#X_STUDIO</a>
             <a href="mailto:mousstallstudio@gmail.com" style="color: #ff003c; text-decoration: none;">#EMAIL</a>
         </div>
     </div>
-
-
+</div>
 
 <script>
-    // Chargement dynamique des projets
     fetch('projets.json')
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
             const container = document.getElementById('projets-container');
-            data.forEach(projet => {
+            data.forEach(p => {
                 container.innerHTML += `
-                    <div class="card" style="border-color: ${projet.couleur}; color: ${projet.couleur};">
-                        <div>
-                            <h3 style="margin-top:0;">${projet.titre}</h3>
-                            <p style="color: #ccc; font-size: 0.9em;">${projet.description}</p>
-                        </div>
-                        <a href="${projet.lien}" class="btn-details">EN SAVOIR PLUS</a>
-                    </div>
-                `;
+                    <div class="card" style="border-color: ${p.couleur}; color: ${p.couleur};">
+                        <div><h3>${p.titre}</h3><p style="color: #ccc;">${p.description}</p></div>
+                        <a href="${p.lien}" class="btn-details">EN SAVOIR PLUS</a>
+                    </div>`;
             });
-        })
-        .catch(err => console.error("Erreur chargement JSON:", err));
+        }).catch(err => console.error(err));
 </script>
-
 </body>
 </html>
