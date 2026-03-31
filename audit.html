@@ -173,6 +173,28 @@
                 }
             }
         });
+
+        function verifierAuto(btn, bonneReponse) {
+    const parent = btn.parentElement;
+    const selection = parent.querySelector('input[type="radio"]:checked');
+    const affichage = parent.querySelector('.resultat-mini');
+    
+    if (!selection) {
+        affichage.style.color = "orange";
+        affichage.innerHTML = "[!] Sélectionne une option avant de valider.";
+        return;
+    }
+
+    if (selection.value === bonneReponse) {
+        affichage.style.color = "#39ff14";
+        affichage.innerHTML = "[+] CORRECT : Bravo, module validé !";
+    } else {
+        affichage.style.color = "#ff003c";
+        affichage.innerHTML = "[-] ERREUR : Ce n'est pas la bonne réponse. Relis le cours.";
+    }
+}
+
   </script>
  </body>
 </html>
+
