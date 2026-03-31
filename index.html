@@ -76,5 +76,32 @@
             });
         }).catch(err => console.error(err));
 </script>
+<script>
+    fetch('projets.json')
+        .then(res => {
+            if(!res.ok) throw new Error("Fichier JSON introuvable");
+            return res.json();
+        })
+        .then(data => {
+            const container = document.getElementById('projets-container');
+            container.innerHTML = ""; // On vide au cas où
+            data.forEach(p => {
+                container.innerHTML += `
+                    <div class="card" style="border-color: ${p.couleur}; color: ${p.couleur};">
+                        <div>
+                            <h3 style="margin-top:0;">${p.titre}</h3>
+                            <p style="color: #ccc; font-size: 0.9em;">${p.description}</p>
+                        </div>
+                        <a href="${p.lien}" class="btn-details">ACCÉDER_MODULE</a>
+                    </div>`;
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('projets-container').innerHTML = "<p>Erreur de chargement des modules...</p>";
+        });
+</script>
+
 </body>
 </html>
+
