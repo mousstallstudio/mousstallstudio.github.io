@@ -12,18 +12,21 @@ def saisie_multiligne(invite):
     print(f"\n[!] {invite}")
     print("(Collez votre texte, puis faites ENTREE + CTRL+D pour valider)")
     print("-" * 30)
-    # Lecture globale du buffer pour éviter les crashs au coller
     contenu = sys.stdin.read()
     print("-" * 30)
     return contenu.strip()
 
 def gerer_vfx():
-    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE 3D & VFX (RENDER-SYNC V2) ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE 3D & VFX (V2.1 - Vidéo First) ---")
     print("1. Ajouter un module de rendu")
     print("2. Supprimer un module")
     choix = input("Choix (1/2) : ")
 
     try:
+        if not os.path.exists("3d-vfx.html"):
+            print("[-] Erreur : 3d-vfx.html introuvable.")
+            return
+
         with open("3d-vfx.html", "r", encoding="utf-8") as f:
             soup = BeautifulSoup(f, "html.parser")
         
@@ -44,11 +47,9 @@ def gerer_vfx():
 
             video_url = f"https://www.youtube.com/embed/{video_id}"
             
-            # Saisie de la description
             description = saisie_multiligne("Description de la leçon")
             
             # --- PATCH LUBUNTU ---
-            # Récupère le contrôle du terminal pour les questions suivantes
             sys.stdin = open('/dev/tty') 
             
             question = input("Question Quiz (VFX-Test) : ")
@@ -59,16 +60,20 @@ def gerer_vfx():
 
             quiz_id = titre.replace(" ", "_")
 
+            # --- STRUCTURE MODIFIÉE : VIDÉO AVANT TEXTE ---
             nouveau_cours = f"""
             <div class="module-container" data-title="{titre}">
                 <button class="accordion" style="border-left: 4px solid #ff003c;">> RENDER_LOG : {titre}</button>
                 <div class="panel">
                     <div class="lesson">
                         <h3>{titre}</h3>
-                        <p style="white-space: pre-wrap; color: #eee;">{description}</p>
+
                         <div style="margin: 20px 0; text-align: center;">
                             <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #ff003c; box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);"></iframe>
                         </div>
+
+                        <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">{description}</p>
+                        
                         <div class="vfx-box" style="border-left: 3px solid #ff003c;">
                             <h4 style="color: #ff003c;">🎯 SHADER_CHALLENGE</h4>
                             <p>{question}</p>
@@ -85,7 +90,7 @@ def gerer_vfx():
             </div>
             """
             target.append(BeautifulSoup(nouveau_cours, "html.parser"))
-            print(f"[+] Module VFX '{titre}' compilé dans le pipeline.")
+            print(f"[+] Module VFX '{titre}' compilé dans le pipeline (Format Vidéo-First).")
 
         elif choix == "2":
             titre_a_suppr = input("Titre du module à supprimer : ")
