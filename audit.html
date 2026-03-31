@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Audit &amp; Pentest | Mousstall Studio
-  </title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body { background: #050505; color: #00f2ff; font-family: 'Fira Code', monospace; padding: 40px; line-height: 1.6; }
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Audit & Pentest | Mousstall Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+    <style>
+        body { background: #050505; color: #00f2ff; font-family: 'Fira Code', monospace; padding: 20px; line-height: 1.6; margin: 0; }
+        
         .content { 
-            max-width: 800px; margin: auto; border: 1px solid #00f2ff; padding: 30px; 
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); background: rgba(0, 5, 10, 0.8); 
+            max-width: 850px; 
+            margin: auto; 
+            border: 1px solid #00f2ff; 
+            padding: 25px; 
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); 
+            background: rgba(0, 5, 10, 0.8); 
         }
-        h1 { border-bottom: 2px solid #00f2ff; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .tech-stack { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-        .tag { background: rgba(0, 242, 255, 0.1); border: 1px solid #00f2ff; padding: 3px 10px; border-radius: 4px; font-size: 0.8em; }
-        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
+
+        h1 { border-bottom: 2px solid #00f2ff; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.5rem; }
+        
+        .tech-stack { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+        .tag { background: rgba(0, 242, 255, 0.1); border: 1px solid #00f2ff; padding: 3px 10px; border-radius: 4px; font-size: 0.75em; }
+        
+        .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; font-size: 0.9em; }
         .back-link:hover { color: #00f2ff; text-shadow: 0 0 5px #00f2ff; }
         
         /* STYLE ACCORDÉON */
@@ -31,162 +37,112 @@
             outline: none;
             transition: 0.4s;
             font-family: 'Fira Code', monospace;
-            margin-top: 20px;
+            margin-top: 15px;
             text-transform: uppercase;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
         .active, .accordion:hover { background: #00f2ff; color: #000; box-shadow: 0 0 15px #00f2ff; }
+        
         .panel {
-            padding: 0 18px;
+            padding: 15px;
             background: rgba(0, 0, 0, 0.6);
             display: none;
-            overflow: hidden;
             border: 1px solid #00f2ff;
             border-top: none;
         }
+
         .lab-btn {
-            display: block; text-align: center; border: 1px solid #00f2ff; padding: 15px;
+            display: block; text-align: center; border: 1px solid #00f2ff; padding: 12px;
             margin: 20px 0; text-decoration: none; color: #00f2ff; font-weight: bold;
-            background: rgba(0, 242, 255, 0.05); transition: 0.3s;
+            background: rgba(0, 242, 255, 0.05); transition: 0.3s; font-size: 0.9em;
         }
         .lab-btn:hover { background: #00f2ff; color: #000; box-shadow: 0 0 20px #00f2ff; }
-  </style>
- </head>
- <body>
-  <div class="content">
-   <h1>
-    [ MODULE_AUDIT ]
-   </h1>
-   <p style="color: #eee;">
-    Analyse de vulnérabilités et rapports de sécurité offensive.
-   </p>
-   <div class="tech-stack">
-    <span class="tag">
-     NMAP
-    </span>
-    <span class="tag">
-     METASPLOIT
-    </span>
-    <span class="tag">
-     BURP_SUITE
-    </span>
-    <span class="tag">
-     WIRESHARK
-    </span>
-    <span class="tag">
-     LINUX_SYSTEMS
-    </span>
-   </div>
-   <p style="color: #ccc;">
-    Au sein de
-    <strong>
-     Mousstall Studio
-    </strong>
-    , nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
-   </p>
-   <h3 style="color: #fff;">
-    NOS EXPERTISES :
-   </h3>
-   <ul>
-    <li>
-     Tests d'intrusion (Web &amp; Network Pentesting).
-    </li>
-    <li>
-     Audits de configuration et sécurisation "Security by Design".
-    </li>
-    <li>
-     Analyse forensic et réponse aux incidents.
-    </li>
-   </ul>
-   <a class="lab-btn" href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank">
-    ⚡ ACCÉDER AU LABO DE PENTEST (REPO GITHUB)
-   </a>
-   <h3 style="color: #fff; margin-top: 40px;">
-    🚀 ACADÉMIE : PENTEST_LOGS
-   </h3>
-   <div id="academy-content">
-    <div class="module-container" data-title="LES FONDATIONS DE LA CYBERSÉCURITÉ">
-     <button class="accordion" style="border-left: 4px solid #00f2ff;">
-      &gt; AUDIT_LOG : LES FONDATIONS DE LA CYBERSÉCURITÉ
-     </button>
-     <div class="panel">
-      <div class="lesson">
-       <h3>
-        LES FONDATIONS DE LA CYBERSÉCURITÉ
-       </h3>
-       <p style="white-space: pre-wrap; color: #eee;">
-        La cybersécurité n'est pas seulement une question de protection contre les virus. C'est l'art de protéger les actifs numériques — réseaux, systèmes et données — contre les attaques, les dommages ou les accès non autorisés.
 
-Pour un Pentester, tout repose sur la compréhension d'un modèle fondamental : la Triade CIA. Si l'un de ces trois piliers tombe, la sécurité n'existe plus.
+        iframe { width: 100%; height: 350px; border: 1px solid #00f2ff; }
 
-    Confidentialité (Confidentiality) : C'est s'assurer que les données ne sont lisibles que par ceux qui en ont le droit.
-
-        Exemple : Si un pirate vole ta base de données mais qu'elle est chiffrée, la confidentialité est maintenue car il ne peut pas la lire.
-
-    Intégrité (Integrity) : C'est garantir que l'information n'a pas été modifiée durant son stockage ou son transport.
-
-        Exemple : Si tu télécharges un logiciel de Pentest, tu vérifies son Hash (MD5/SHA256) pour être sûr qu'un pirate n'a pas injecté un cheval de Troie à l'intérieur.
-
-    Disponibilité (Availability) : C'est s'assurer que les services fonctionnent quand on en a besoin.
-
-        Exemple : Une attaque DDoS (déni de service) cherche à briser la disponibilité en surchargeant un serveur pour le faire planter.
-       </p>
-       <div style="margin: 20px 0; text-align: center;">
-        <iframe allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/uoogZrxncqY" style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);" width="100%">
-        </iframe>
-       </div>
-       <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: rgba(0, 242, 255, 0.05); padding: 15px;">
-        <h4 style="color: #00f2ff;">
-         🎯 MISSION_QUIZ
-        </h4>
-        <p>
-         Tu envoies un message secret à un ami. Un pirate intercepte le message, le modifie pour changer le point de rendez-vous, et le renvoie à ton ami. Quel pilier de la Triade CIA a été brisé ?
-        </p>
-        <ul style="list-style-type: none; padding-left: 0;">
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="A"/>
-           A) La Confidentialité
-          </label>
-         </li>
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="B"/>
-           B) L'IntégritéLa
-          </label>
-         </li>
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="C"/>
-           C) La Disponibilité
-          </label>
-         </li>
-        </ul>
-        <button class="btn-valider" onclick="alert(document.querySelector('input[name=\'q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ\']:checked')?.value === 'B' ? '[+] ACCÈS_AUTORISÉ' : '[-] ACCÈS_REFUSÉ')" style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%;">
-         VÉRIFIER L'AUDIT
-        </button>
-       </div>
-      </div>
-     </div>
+        /* --- MOBILE PATCH --- */
+        @media screen and (max-width: 600px) {
+            body { padding: 10px; }
+            .content { padding: 15px; border-width: 1px; }
+            h1 { font-size: 1.2rem; }
+            iframe { height: 210px; }
+            .accordion { font-size: 0.75em; padding: 12px; }
+            .panel { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h1>[ MODULE_AUDIT ]</h1>
+    <p style="color: #eee; font-size: 0.9em;">Analyse de vulnérabilités et rapports de sécurité offensive.</p>
+    
+    <div class="tech-stack">
+        <span class="tag">NMAP</span>
+        <span class="tag">METASPLOIT</span>
+        <span class="tag">BURP_SUITE</span>
+        <span class="tag">WIRESHARK</span>
+        <span class="tag">LINUX_SYSTEMS</span>
     </div>
-   </div>
-   <a class="back-link" href="index.html">
-    &lt; [ RETOUR_STUDIO ]
-   </a>
-  </div>
-  <script>
-   // Gestion globale des accordéons (statiques et dynamiques)
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('accordion')) {
-                e.target.classList.toggle('active');
-                var panel = e.target.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            }
-        });
-  </script>
- </body>
+
+    <p style="color: #ccc; font-size: 0.9em;">
+        Au sein de <strong>Mousstall Studio</strong>, nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
+    </p>
+
+    <h3 style="color: #fff; font-size: 1rem;">NOS EXPERTISES :</h3>
+    <ul style="font-size: 0.9em; color: #ccc;">
+        <li>Tests d'intrusion (Web & Network Pentesting).</li>
+        <li>Audits de configuration et sécurisation.</li>
+        <li>Analyse forensic et réponse aux incidents.</li>
+    </ul>
+
+    <a class="lab-btn" href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank">
+        ⚡ ACCÉDER AU LABO DE PENTEST
+    </a>
+
+    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🚀 ACADÉMIE : PENTEST_LOGS</h3>
+    
+    <div id="academy-content">
+        <div class="module-container" data-title="LES FONDATIONS DE LA CYBERSÉCURITÉ">
+            <button class="accordion" style="border-left: 4px solid #00f2ff;">
+                > AUDIT_LOG : FONDATIONS
+            </button>
+            <div class="panel">
+                <div class="lesson">
+                    <h3 style="font-size: 1rem;">LES FONDATIONS</h3>
+                    <p style="white-space: pre-wrap; color: #eee; font-size: 0.85em;">
+La cybersécurité repose sur la Triade CIA : Confidentialité, Intégrité, Disponibilité.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <iframe src="https://www.youtube.com/embed/uoogZrxncqY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="exercise-box" style="border: 1px dashed #00f2ff; padding: 10px; background: rgba(0, 242, 255, 0.05);">
+                        <h4 style="color: #00f2ff; margin-top: 0;">🎯 MISSION_QUIZ</h4>
+                        <p style="font-size: 0.85em;">Un message intercepté et modifié brise quel pilier ?</p>
+                        <ul style="list-style: none; padding: 0; font-size: 0.85em;">
+                            <li><label><input name="q_1" type="radio" value="A"/> A) Confidentialité</label></li>
+                            <li><label><input name="q_1" type="radio" value="B"/> B) Intégrité</label></li>
+                            <li><label><input name="q_1" type="radio" value="C"/> C) Disponibilité</label></li>
+                        </ul>
+                        <button class="lab-btn" style="width: 100%; margin-bottom: 0;" onclick="alert(document.querySelector('input[name=\'q_1\']:checked')?.value === 'B' ? '[+] ACCÈS_AUTORISÉ' : '[-] ACCÈS_REFUSÉ')">
+                            VÉRIFIER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="back-link" href="index.html">< [ RETOUR_STUDIO ]</a>
+</div>
+
+<script>
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('accordion')) {
+            e.target.classList.toggle('active');
+            var panel = e.target.nextElementSibling;
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+        }
+    });
+</script>
+</body>
 </html>
