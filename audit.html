@@ -14,6 +14,43 @@
         .back-link:hover { color: #00f2ff; text-shadow: 0 0 5px #00f2ff; }
         ul li { margin-bottom: 10px; color: #eee; }
         strong { color: #00f2ff; }
+        
+
+        /* Accordéon Style Mousstall */
+        .accordion {
+            background: rgba(0, 242, 255, 0.05);
+            color: #00f2ff;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #00f2ff;
+            outline: none;
+            transition: 0.4s;
+            font-family: 'Fira Code', monospace;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .active, .accordion:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 15px #00f2ff;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            overflow: hidden;
+            border: 1px solid #00f2ff;
+            border-top: none;
+        }
+
+        .lesson { padding: 20px 0; color: #eee; }
+        .lesson h3 { color: #00f2ff; margin-top: 0; }
+
     </style>
 </head>
 <body>
@@ -40,8 +77,48 @@
        > ACCÉDER_AU_LABS.sh
     </a>
 </div>
+     
+<h3 style="color: #fff; margin-top: 40px;">📂 ACADÉMIE : APPRENTISSAGE</h3>
 
-        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+        <button class="accordion">> APPRENDRE : LES BASES DU HACKING</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>🛡️ C'est quoi la Cybersécurité ?</h3>
+                <p>La protection des systèmes, réseaux et données contre les attaques numériques.</p>
+                <p><strong>Exercice :</strong> Installe Lubuntu sur une VM et essaie de naviguer dans le terminal.</p>
+            </div>
+        </div>
+
+        <button class="accordion">> APPRENDRE : LE RÉSEAU (TCP/IP)</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>🌐 Comment Internet fonctionne ?</h3>
+                <p>Comprendre les adresses IP, les ports et le modèle OSI.</p>
+            </div>
+        </div>     
+       
+         
+         <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
     </div>
+
+
+<script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
 </body>
 </html>

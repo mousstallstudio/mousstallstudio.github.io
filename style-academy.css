@@ -1,0 +1,45 @@
+/* Style global pour les menus déroulants */
+.accordion {
+    background-color: #0a0a0a;
+    color: #00FF00;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #00FF00;
+    outline: none;
+    transition: 0.3s;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.active, .accordion:hover {
+    background-color: #00FF00;
+    color: #000;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: #000;
+    display: none;
+    overflow: hidden;
+    border-left: 1px solid #00FF00;
+    border-right: 1px solid #00FF00;
+    border-bottom: 1px solid #00FF00;
+    color: #e0e0e0;
+}
+
+.lesson {
+    padding: 20px 0;
+    border-bottom: 1px dashed #333;
+}
+
+.video-box iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border: 1px solid #00FF00;
+    margin: 15px 0;
+}

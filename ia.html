@@ -12,6 +12,42 @@
         .status { color: #f1c40f; font-weight: bold; background: rgba(241, 196, 15, 0.1); padding: 5px 10px; border-radius: 4px; }
         .back-link { color: #888; text-decoration: none; display: block; margin-top: 30px; transition: 0.3s; }
         .back-link:hover { color: #f1c40f; text-shadow: 0 0 5px #f1c40f; }
+
+        /* --- STYLE ACCORDÉON (JAUNE IA) --- */
+        .accordion {
+            background: rgba(241, 196, 15, 0.05);
+            color: #f1c40f;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #f1c40f;
+            outline: none;
+            transition: 0.4s;
+            font-family: 'Fira Code', monospace;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .active, .accordion:hover {
+            background: #f1c40f;
+            color: #000;
+            box-shadow: 0 0 15px #f1c40f;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            overflow: hidden;
+            border: 1px solid #f1c40f;
+            border-top: none;
+        }
+
+        .lesson { padding: 20px 0; color: #eee; }
+        .lesson h3 { color: #f1c40f; margin-top: 0; }
+        .lab-note { background: rgba(241, 196, 15, 0.1); padding: 10px; border-left: 3px solid #f1c40f; margin-top: 10px; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -19,13 +55,52 @@
         <h1>[ MOUSSTALL_LABS : IA ]</h1>
         <p><span class="status">STATUS : EN DÉVELOPPEMENT</span></p>
         <p style="color: #eee;">L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.</p>
+        
         <p style="color: #ccc;">Nos axes de recherche actuels :</p>
         <ul>
             <li>Automatisation de scans de vulnérabilités via Python.</li>
             <li>Génération de scripts de défense active assistée par LLM.</li>
             <li>Optimisation des workflows de développement Dart/Flutter.</li>
         </ul>
+
+        <h3 style="color: #fff; margin-top: 40px;">🧠 ACADÉMIE : AI_RESEARCH</h3>
+
+        <button class="accordion">> APPRENDRE : PROMPT ENGINEERING</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>💬 L'art de parler aux machines</h3>
+                <p>Apprendre à structurer une requête (Rôle, Contexte, Tâche, Format) pour obtenir un code Python ou Dart sans erreur.</p>
+                <div class="lab-note">
+                    <strong>⚡ TIP :</strong> Toujours demander à l'IA d'expliquer chaque ligne de code générée pour mieux apprendre.
+                </div>
+            </div>
+        </div>
+
+        <button class="accordion">> APPRENDRE : AUTOMATISATION & IA</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>🤖 Scripts Intelligents</h3>
+                <p>Comment relier des APIs d'intelligence artificielle à tes outils locaux sur Lubuntu pour analyser des logs de sécurité.</p>
+            </div>
+        </div>
+
         <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
     </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
