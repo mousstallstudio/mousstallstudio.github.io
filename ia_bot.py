@@ -17,7 +17,7 @@ def saisie_multiligne(invite):
     return contenu.strip()
 
 def gerer_ia():
-    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE IA (V2.2 - List & Delete) ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE IA (V4.1 - Terminal Edition) ---")
     print("1. Ajouter un module de recherche")
     print("2. Supprimer un module")
     choix = input("Choix (1/2) : ")
@@ -55,6 +55,7 @@ def gerer_ia():
 
             quiz_id = titre.replace(" ", "_")
 
+            # --- STRUCTURE TERMINAL POUR L'IA (JAUNE #f1c40f) ---
             nouveau_cours = f"""
             <div class="module-container" data-title="{titre}">
                 <button class="accordion" style="border-left: 4px solid #f1c40f;">> AI_LOG : {titre}</button>
@@ -65,53 +66,49 @@ def gerer_ia():
                             <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #f1c40f; box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);"></iframe>
                         </div>
                         <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">{desc}</p>
-                        <div class="lab-note" style="border-left: 3px solid #f1c40f;">
-                            <h4 style="color: #f1c40f;">🧠 NEURAL_TEST</h4>
-                            <p>{ques}</p>
-                            <ul style="list-style-type: none; padding-left: 0;">
-                                <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="A"> A) {opt_a}</label></li>
-                                <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="B"> B) {opt_b}</label></li>
-                                <li><label class="quiz-label"><input type="radio" name="q_{quiz_id}" value="C"> C) {opt_c}</label></li>
+                        
+                        <div class="lab-note" style="border-left: 3px solid #f1c40f; background: #0a0a0a; padding: 15px; font-family: 'Courier New', monospace;">
+                            <h4 style="color: #f1c40f; margin-top: 0;">🧠 NEURAL_TEST</h4>
+                            <p style="color: #ccc;">{ques}</p>
+                            <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
+                                <li><label><input type="radio" name="q_{quiz_id}" value="A"> <span style="color:#f1c40f;">A)</span> {opt_a}</label></li>
+                                <li><label><input type="radio" name="q_{quiz_id}" value="B"> <span style="color:#f1c40f;">B)</span> {opt_b}</label></li>
+                                <li><label><input type="radio" name="q_{quiz_id}" value="C"> <span style="color:#f1c40f;">C)</span> {opt_c}</label></li>
                             </ul>
-                            <button class="btn-valider" style="border-color: #f1c40f; color: #f1c40f;" onclick="verifierAuto(this, '{rep}')">EXECUTER L'ANALYSE</button>
-                            <p class="resultat-mini"></p>
+                            
+                            <button class="btn-valider" onclick="verifierAuto(this, '{rep}')" style="background:transparent; color:#f1c40f; border:1px solid #f1c40f; cursor:pointer; padding:10px; width:100%; font-weight:bold;">
+                                EXÉCUTER L'ANALYSE NEURALE
+                            </button>
+                            
+                            <p class="resultat-mini" style="margin-top: 15px; font-weight: bold; font-size: 0.9em; background: #000; padding: 8px; border: 1px solid #222;">
+                                <span style="color: #555;">>> status: awaiting data_stream...</span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             """
             target.append(BeautifulSoup(nouveau_cours, "html.parser"))
-            print(f"[+] Module IA '{titre}' synchronisé.")
+            print(f"[+] Module IA '{titre}' synchronisé avec le Neural-Log.")
 
         elif choix == "2":
-            # --- SCAN DES MODULES IA ---
             modules = soup.find_all("div", class_="module-container")
-            
             if not modules:
                 print("\n[-] Aucun module trouvé dans ia.html.")
                 return
 
             print("\n--- MODULES IA DISPONIBLES ---")
-            liste_titres = []
-            for idx, mod in enumerate(modules, 1):
-                t = mod.get("data-title")
-                liste_titres.append(t)
+            liste_titres = [mod.get("data-title") for mod in modules]
+            for idx, t in enumerate(liste_titres, 1):
                 print(f"{idx}. {t}")
-            print("-" * 35)
 
             saisie = input("\nNuméro ou Titre exact à déconnecter : ")
-
             if saisie.isdigit():
                 index = int(saisie) - 1
-                if 0 <= index < len(liste_titres):
-                    titre_a_suppr = liste_titres[index]
-                else:
-                    print("[-] Index invalide.")
-                    return
+                titre_a_suppr = liste_titres[index] if 0 <= index < len(liste_titres) else None
             else:
                 titre_a_suppr = saisie
 
-            # --- SUPPRESSION ---
             module = soup.find("div", {"data-title": titre_a_suppr})
             if module:
                 module.decompose()

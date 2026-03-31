@@ -17,7 +17,7 @@ def saisie_multiligne(invite):
     return contenu.strip()
 
 def gerer_audit():
-    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT (V3.3) ---")
+    print("\n--- MOUSSTALL STUDIO : GESTIONNAIRE D'AUDIT (V4.0) ---")
     print("1. Ajouter un cours")
     print("2. Supprimer un cours")
     choix = input("Choix (1/2) : ")
@@ -54,6 +54,7 @@ def gerer_audit():
 
             quiz_id = titre.replace(" ", "_")
 
+            # --- STRUCTURE AVEC LOG TERMINAL ---
             nouveau_html = f"""
             <div class="module-container" data-title="{titre}">
                 <button class="accordion" style="border-left: 4px solid #00f2ff;">> AUDIT_LOG : {titre}</button>
@@ -64,15 +65,35 @@ def gerer_audit():
                             <iframe width="100%" height="350" src="{video_url}" frameborder="0" allowfullscreen style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);"></iframe>
                         </div>
                         <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">{description}</p>
-                        <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: rgba(0, 242, 255, 0.05); padding: 15px;">
-                            <h4 style="color: #00f2ff;">🎯 MISSION_QUIZ</h4>
-                            <p>{question}</p>
+                        
+                        <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: #0d0d0d; padding: 15px; font-family: 'Courier New', monospace;">
+                            <h4 style="color: #00f2ff; margin-top: 0;">🎯 MISSION_QUIZ</h4>
+                            <p style="color: #ccc;">{question}</p>
                             <ul style="list-style-type: none; padding-left: 0;">
                                 <li><label><input type="radio" name="q_{quiz_id}" value="A"> A) {opt_a}</label></li>
                                 <li><label><input type="radio" name="q_{quiz_id}" value="B"> B) {opt_b}</label></li>
                                 <li><label><input type="radio" name="q_{quiz_id}" value="C"> C) {opt_c}</label></li>
                             </ul>
-                            <button class="btn-valider" onclick="alert(document.querySelector('input[name=\\'q_{quiz_id}\\']:checked')?.value === '{rep}' ? '[+] ACCÈS_AUTORISÉ' : '[-] ACCÈS_REFUSÉ')" style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%;">VÉRIFIER L'AUDIT</button>
+                            
+                            <button class="btn-valider" 
+                                onclick="
+                                    let sel = document.querySelector('input[name=\\'q_{quiz_id}\\']:checked')?.value;
+                                    let log = document.getElementById('log_{quiz_id}');
+                                    if(!sel) {{
+                                        log.innerHTML = '<span style=\\'color:#ffcc00\\'>[!] WARNING : No input detected.</span>';
+                                    }} else if(sel === '{rep}') {{
+                                        log.innerHTML = '<span style=\\'color:#39ff14\\'>[+] SUCCESS : ACCESS_GRANTED.</span>';
+                                    }} else {{
+                                        log.innerHTML = '<span style=\\'color:#ff003c\\'>[-] ERROR : ACCESS_DENIED.</span>';
+                                    }}
+                                " 
+                                style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%; margin-top:10px; font-weight:bold;">
+                                EXECUTER LA VERIFICATION
+                            </button>
+                            
+                            <div id="log_{quiz_id}" style="margin-top: 10px; padding: 5px; background: #000; border: 1px solid #333; min-height: 20px; font-size: 0.9em;">
+                                <span style="color: #555;">$ waiting for credentials...</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,46 +103,34 @@ def gerer_audit():
             
             with open("audit.html", "w", encoding="utf-8") as f:
                 f.write(soup.prettify())
-            print(f"[+] Module '{titre}' injecté avec succès.")
+            print(f"[+] Module '{titre}' injecté avec succès (Log Terminal activé).")
 
         elif choix == "2":
-            # --- LISTAGE DES MODULES ---
             modules = soup.find_all("div", class_="module-container")
-            
             if not modules:
-                print("\n[-] Aucun module trouvé dans audit.html.")
+                print("\n[-] Aucun module trouvé.")
                 return
 
             print("\n--- MODULES D'AUDIT DISPONIBLES ---")
-            liste_titres = []
-            for idx, mod in enumerate(modules, 1):
-                t = mod.get("data-title")
-                liste_titres.append(t)
+            liste_titres = [mod.get("data-title") for mod in modules]
+            for idx, t in enumerate(liste_titres, 1):
                 print(f"{idx}. {t}")
-            print("-" * 35)
 
-            saisie = input("\nEntrez le NUMÉRO ou le TITRE à supprimer : ")
-
-            # Vérification si c'est un index numérique ou un texte
+            saisie = input("\nNUMÉRO ou TITRE à supprimer : ")
             if saisie.isdigit():
                 index = int(saisie) - 1
-                if 0 <= index < len(liste_titres):
-                    titre_a_suppr = liste_titres[index]
-                else:
-                    print("[-] Numéro invalide.")
-                    return
+                titre_a_suppr = liste_titres[index] if 0 <= index < len(liste_titres) else None
             else:
                 titre_a_suppr = saisie
 
-            # --- SUPPRESSION ---
             module = soup.find("div", {"data-title": titre_a_suppr})
             if module:
                 module.decompose()
                 with open("audit.html", "w", encoding="utf-8") as f:
                     f.write(soup.prettify())
-                print(f"[+] Module '{titre_a_suppr}' supprimé avec succès.")
+                print(f"[+] Module '{titre_a_suppr}' supprimé.")
             else:
-                print(f"[-] Erreur : Module '{titre_a_suppr}' introuvable.")
+                print("[-] Introuvable.")
 
     except Exception as e:
         print(f"[-] Erreur critique : {e}")

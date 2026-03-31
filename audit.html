@@ -126,62 +126,81 @@
     🚀 ACADÉMIE : PENTEST_LOGS
    </h3>
    <div id="academy-content">
-    <div class="module-container" data-title="FONDATIONS DE LA CYBERSÉCURITÉ">
+    <div class="module-container" data-title="LES FONDATIONS DE LA CYBERSÉCURITÉ">
      <button class="accordion" style="border-left: 4px solid #00f2ff;">
-      &gt; AUDIT_LOG : FONDATIONS DE LA CYBERSÉCURITÉ
+      &gt; AUDIT_LOG : LES FONDATIONS DE LA CYBERSÉCURITÉ
      </button>
      <div class="panel">
       <div class="lesson">
        <h3>
-        FONDATIONS DE LA CYBERSÉCURITÉ
+        LES FONDATIONS DE LA CYBERSÉCURITÉ
        </h3>
        <div style="margin: 20px 0; text-align: center;">
         <iframe allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/uoogZrxncqY" style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);" width="100%">
         </iframe>
        </div>
        <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">
-        La cybersécurité n'est pas seulement une affaire de "hackers" en capuche ; c'est l'ensemble des moyens techniques, organisationnels et juridiques mis en place pour préserver l'intégrité, la confidentialité et la disponibilité des données.
+        La cybersécurité n'est pas seulement une question de protection contre les virus. C'est l'art de protéger les actifs numériques — réseaux, systèmes et données — contre les attaques, les dommages ou les accès non autorisés.
 
-Pour bien comprendre, il faut maîtriser la Triade de la CIA (en anglais : Confidentiality, Integrity, Availability) :
+Pour un Pentester, tout repose sur la compréhension d'un modèle fondamental : la Triade CIA. Si l'un de ces trois piliers tombe, la sécurité n'existe plus.
 
-    Confidentialité : S'assurer que seules les personnes autorisées ont accès aux données (ex: chiffrement).
+    Confidentialité (Confidentiality) : C'est s'assurer que les données ne sont lisibles que par ceux qui en ont le droit.
 
-    Intégrité : Garantir que les données n'ont pas été modifiées ou corrompues par accident ou par malveillance (ex: hashage).
+        Exemple : Si un pirate vole ta base de données mais qu'elle est chiffrée, la confidentialité est maintenue car il ne peut pas la lire.
 
-    Disponibilité : Faire en sorte que les systèmes et les données soient accessibles quand on en a besoin (ex: protection contre les attaques DDoS).
+    Intégrité (Integrity) : C'est garantir que l'information n'a pas été modifiée durant son stockage ou son transport.
 
-En tant que Pentester (Hacker Éthique), ton rôle est de tester ces trois piliers pour trouver des failles avant que des cybercriminels ne les exploitent. Cela passe par la reconnaissance (Nmap), l'exploitation (Metasploit) et la post-exploitation.
+        Exemple : Si tu télécharges un logiciel de Pentest, tu vérifies son Hash (MD5/SHA256) pour être sûr qu'un pirate n'a pas injecté un cheval de Troie à l'intérieur.
+
+    Disponibilité (Availability) : C'est s'assurer que les services fonctionnent quand on en a besoin.
+
+        Exemple : Une attaque DDoS (déni de service) cherche à briser la disponibilité en surchargeant un serveur pour le faire planter.
        </p>
-       <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: rgba(0, 242, 255, 0.05); padding: 15px;">
-        <h4 style="color: #00f2ff;">
+       <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: #0d0d0d; padding: 15px; font-family: 'Courier New', monospace;">
+        <h4 style="color: #00f2ff; margin-top: 0;">
          🎯 MISSION_QUIZ
         </h4>
-        <p>
-         Lequel de ces principes garantit qu'un fichier n'a pas été modifié par un pirate durant son transfert ?
+        <p style="color: #ccc;">
+         Tu envoies un message secret à un ami. Un pirate intercepte le message, le modifie pour changer le point de rendez-vous, et le renvoie à ton ami. Quel pilier de la Triade CIA a été brisé ?
         </p>
         <ul style="list-style-type: none; padding-left: 0;">
          <li>
           <label>
-           <input name="q_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="A"/>
+           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="A"/>
            A) La Confidentialité
           </label>
          </li>
          <li>
           <label>
-           <input name="q_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="B"/>
+           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="B"/>
            B) L'Intégrité
           </label>
          </li>
          <li>
           <label>
-           <input name="q_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="C"/>
+           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="C"/>
            C) La Disponibilité
           </label>
          </li>
         </ul>
-        <button class="btn-valider" onclick="alert(document.querySelector('input[name=\'q_FONDATIONS_DE_LA_CYBERSÉCURITÉ\']:checked')?.value === 'B' ? '[+] ACCÈS_AUTORISÉ' : '[-] ACCÈS_REFUSÉ')" style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%;">
-         VÉRIFIER L'AUDIT
+        <button class="btn-valider" onclick="
+                                    let sel = document.querySelector('input[name=\'q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ\']:checked')?.value;
+                                    let log = document.getElementById('log_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ');
+                                    if(!sel) {
+                                        log.innerHTML = '&lt;span style=\'color:#ffcc00\'&gt;[!] WARNING : No input detected.&lt;/span&gt;';
+                                    } else if(sel === 'B') {
+                                        log.innerHTML = '&lt;span style=\'color:#39ff14\'&gt;[+] SUCCESS : ACCESS_GRANTED.&lt;/span&gt;';
+                                    } else {
+                                        log.innerHTML = '&lt;span style=\'color:#ff003c\'&gt;[-] ERROR : ACCESS_DENIED.&lt;/span&gt;';
+                                    }
+                                " style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%; margin-top:10px; font-weight:bold;">
+         EXECUTER LA VERIFICATION
         </button>
+        <div id="log_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" style="margin-top: 10px; padding: 5px; background: #000; border: 1px solid #333; min-height: 20px; font-size: 0.9em;">
+         <span style="color: #555;">
+          $ waiting for credentials...
+         </span>
+        </div>
        </div>
       </div>
      </div>
