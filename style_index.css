@@ -248,37 +248,42 @@ form input:focus { border-color: var(--neon-blue); }
 
 /* --- ADAPTATION MOBILE MOUSSTALL STUDIO --- */
 @media screen and (max-width: 700px) {
-    /* On empile les liens du menu verticalement */
+    /* On aligne le logo et on prépare la zone de navigation */
     .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
     }
 
+    /* Le logo prend moins de place */
+    .nav-logo svg {
+        width: 150px;
+    }
+
+    /* On transforme la liste en une barre de navigation discrète ou un menu vertical propre */
     .nav-links {
-        display: flex;
-        flex-direction: column; /* Liens les uns sous les autres */
+        display: none;
+        flex-direction: row; /* On les remet en ligne */
+        flex-wrap: wrap;     /* Ils passent à la ligne si besoin */
+        justify-content: center;
         gap: 10px;
         width: 100%;
-        text-align: center;
         margin-top: 10px;
-        padding-bottom: 10px;
-        border-top: 1px solid #4deeea; /* Petite ligne de séparation */
+        background: rgba(255, 0, 60, 0.05); /* Rappel du rouge néon */
+        border-top: 1px solid #4deeea;
+        padding: 10px 0;
     }
 
     .nav-links a {
-        font-size: 0.85em;
-        padding: 5px 0;
+        font-size: 0.75em; /* Plus petit pour que ça tienne */
+        padding: 5px 8px;
+        border: 1px solid transparent;
     }
 
-    /* On cache les icônes secondaires pour gagner de la place */
-    .nav-icons {
-        display: none;
-    }
-
-    /* Ajustement du container de projets */
-    #projets-container {
-        grid-template-columns: 1fr; /* Une seule colonne sur téléphone */
-        gap: 15px;
+    .nav-links a:hover {
+        border: 1px solid #4deeea;
+        background: rgba(77, 238, 234, 0.1);
     }
 }

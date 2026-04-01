@@ -24,8 +24,7 @@
     <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 <body>
-
-    <nav class="top-nav">
+    
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
@@ -44,7 +43,7 @@
                     </svg>
                 </a>
             </div>
-
+            <button id="menu-toggle" style="background:none; border:1px solid #4deeea; color:#4deeea; padding:5px 10px; cursor:pointer; font-family:'Fira Code';">MENU [=]</button>
             <div class="nav-links">
                 <a href="javascript:void(0)" id="btn-produits">Produits</a>
                 <a href="services.html">Magasin</a>
@@ -179,6 +178,11 @@
                     </div>
                 `).join('');
             }).catch(err => console.error(err));
+
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = (links.style.display === 'flex') ? 'none' : 'flex';
+});
     </script>
 </body>
 </html>
