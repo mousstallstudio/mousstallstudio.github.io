@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 100" width="450" height="100">
+  <defs>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#neonGlow)">
+    <text x="10" y="55" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" fill="#4deeea">MOUSSTALL STUDIO</text>
+    <text x="12" y="85" font-family="'Fira Code', monospace" font-size="14" fill="#888">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
+    
+    <rect x="420" y="65" width="10" height="15" fill="#00853f" />
+    <rect x="430" y="65" width="10" height="15" fill="#fdef42" />
+    <rect x="440" y="65" width="10" height="15" fill="#e31b23" />
+  </g>
+</svg>
