@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Audit &amp; Pentest | Mousstall Studio
-  </title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style_index.css">
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
-  <style>
-  body { 
-    background: #050505; 
-    color: #00f2ff; 
-    font-family: 'Fira Code', monospace; 
-    line-height: 1.6; 
-    margin: 0; /* Important pour que la nav touche les bords */
-}
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Audit &amp; Pentest | Mousstall Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        body { 
+            background: #050505; 
+            color: #00f2ff; 
+            font-family: 'Fira Code', monospace; 
+            line-height: 1.6; 
+            margin: 0;
+        }
 
-.content { 
-    max-width: 850px; 
-    margin: 40px auto; /* Ajoute de la marge en haut et en bas */
-    border: 1px solid #00f2ff; 
-    padding: 25px; 
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); 
-    background: rgba(0, 5, 10, 0.8); 
-}
+        .content { 
+            max-width: 850px; 
+            margin: 40px auto; 
+            border: 1px solid #00f2ff; 
+            padding: 25px; 
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); 
+            background: rgba(0, 5, 10, 0.8); 
+        }
 
         h1 { border-bottom: 2px solid #00f2ff; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.5rem; }
         
@@ -72,22 +70,21 @@
 
         /* --- MOBILE PATCH --- */
         @media screen and (max-width: 600px) {
-            body { padding: 10px; }
-            .content { padding: 15px; border-width: 1px; }
+            body { padding: 0px; }
+            .content { padding: 15px; margin: 20px 10px; }
             h1 { font-size: 1.2rem; }
             iframe { height: 210px; }
             .accordion { font-size: 0.75em; padding: 12px; }
             .panel { padding: 10px; }
         }
-  </style>
- </head>
- <body>
+    </style>
+</head>
+<body>
 
-
-    <nav class="top-nav">
+<nav class="top-nav">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="index.html">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
                 <svg width="220" height="50" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <filter id="neonGlow">
@@ -104,7 +101,9 @@
             </a>
         </div>
 
-        <div class="nav-links">
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -118,151 +117,106 @@
     </div>
 </nav>
 
-
-  <div class="content">
-   <h1>
-    [ MODULE_AUDIT ]
-   </h1>
-   <p style="color: #eee; font-size: 0.9em;">
-    Analyse de vulnérabilités et rapports de sécurité offensive.
-   </p>
-   <div class="tech-stack">
-    <span class="tag">
-     NMAP
-    </span>
-    <span class="tag">
-     METASPLOIT
-    </span>
-    <span class="tag">
-     BURP_SUITE
-    </span>
-    <span class="tag">
-     WIRESHARK
-    </span>
-    <span class="tag">
-     LINUX_SYSTEMS
-    </span>
-   </div>
-   <p style="color: #ccc; font-size: 0.9em;">
-    Au sein de
-    <strong>
-     Mousstall Studio
-    </strong>
-    , nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
-   </p>
-   <h3 style="color: #fff; font-size: 1rem;">
-    NOS EXPERTISES :
-   </h3>
-   <ul style="font-size: 0.9em; color: #ccc;">
-    <li>
-     Tests d'intrusion (Web &amp; Network Pentesting).
-    </li>
-    <li>
-     Audits de configuration et sécurisation.
-    </li>
-    <li>
-     Analyse forensic et réponse aux incidents.
-    </li>
-   </ul>
-   <a class="lab-btn" href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank">
-    ⚡ ACCÉDER AU LABO DE PENTEST
-   </a>
-   <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">
-    🚀 ACADÉMIE : PENTEST_LOGS
-   </h3>
-   <div id="academy-content">
-    <div class="module-container" data-title="LES FONDATIONS DE LA CYBERSÉCURITÉ">
-     <button class="accordion" style="border-left: 4px solid #00f2ff;">
-      &gt; AUDIT_LOG : LES FONDATIONS DE LA CYBERSÉCURITÉ
-     </button>
-     <div class="panel">
-      <div class="lesson">
-       <h3>
-        LES FONDATIONS DE LA CYBERSÉCURITÉ
-       </h3>
-       <div style="margin: 20px 0; text-align: center;">
-        <iframe allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/uoogZrxncqY" style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);" width="100%">
-        </iframe>
-       </div>
-       <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">
-        La cybersécurité n'est pas seulement une question de protection contre les virus. C'est l'art de protéger les actifs numériques — réseaux, systèmes et données — contre les attaques, les dommages ou les accès non autorisés.
-
-Pour un Pentester, tout repose sur la compréhension d'un modèle fondamental : la Triade CIA. Si l'un de ces trois piliers tombe, la sécurité n'existe plus.
-
-    Confidentialité (Confidentiality) : C'est s'assurer que les données ne sont lisibles que par ceux qui en ont le droit.
-
-        Exemple : Si un pirate vole ta base de données mais qu'elle est chiffrée, la confidentialité est maintenue car il ne peut pas la lire.
-
-    Intégrité (Integrity) : C'est garantir que l'information n'a pas été modifiée durant son stockage ou son transport.
-
-        Exemple : Si tu télécharges un logiciel de Pentest, tu vérifies son Hash (MD5/SHA256) pour être sûr qu'un pirate n'a pas injecté un cheval de Troie à l'intérieur.
-
-    Disponibilité (Availability) : C'est s'assurer que les services fonctionnent quand on en a besoin.
-
-        Exemple : Une attaque DDoS (déni de service) cherche à briser la disponibilité en surchargeant un serveur pour le faire planter.
-       </p>
-       <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: #0d0d0d; padding: 15px; font-family: 'Courier New', monospace;">
-        <h4 style="color: #00f2ff; margin-top: 0;">
-         🎯 MISSION_QUIZ
-        </h4>
-        <p style="color: #ccc;">
-         Tu envoies un message secret à un ami. Un pirate intercepte le message, le modifie pour changer le point de rendez-vous, et le renvoie à ton ami. Quel pilier de la Triade CIA a été brisé ?
-        </p>
-        <ul style="list-style-type: none; padding-left: 0;">
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="A"/>
-           A) La Confidentialité
-          </label>
-         </li>
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="B"/>
-           B) L'Intégrité
-          </label>
-         </li>
-         <li>
-          <label>
-           <input name="q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" type="radio" value="C"/>
-           C) La Disponibilité
-          </label>
-         </li>
-        </ul>
-        <button class="btn-valider" onclick="
-                                    let sel = document.querySelector('input[name=\'q_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ\']:checked')?.value;
-                                    let log = document.getElementById('log_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ');
-                                    if(!sel) {
-                                        log.innerHTML = '&lt;span style=\'color:#ffcc00\'&gt;[!] WARNING : No input detected.&lt;/span&gt;';
-                                    } else if(sel === 'B') {
-                                        log.innerHTML = '&lt;span style=\'color:#39ff14\'&gt;[+] SUCCESS : ACCESS_GRANTED.&lt;/span&gt;';
-                                    } else {
-                                        log.innerHTML = '&lt;span style=\'color:#ff003c\'&gt;[-] ERROR : ACCESS_DENIED.&lt;/span&gt;';
-                                    }
-                                " style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%; margin-top:10px; font-weight:bold;">
-         EXECUTER LA VERIFICATION
-        </button>
-        <div id="log_LES_FONDATIONS_DE_LA_CYBERSÉCURITÉ" style="margin-top: 10px; padding: 5px; background: #000; border: 1px solid #333; min-height: 20px; font-size: 0.9em;">
-         <span style="color: #555;">
-          $ waiting for credentials...
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
+<div class="content">
+    <h1>[ MODULE_AUDIT ]</h1>
+    <p style="color: #eee; font-size: 0.9em;">Analyse de vulnérabilités et rapports de sécurité offensive.</p>
+    
+    <div class="tech-stack">
+        <span class="tag">NMAP</span>
+        <span class="tag">METASPLOIT</span>
+        <span class="tag">BURP_SUITE</span>
+        <span class="tag">WIRESHARK</span>
+        <span class="tag">LINUX_SYSTEMS</span>
     </div>
-   </div>
-   <a class="back-link" href="index.html">
-    &lt; [ RETOUR_STUDIO ]
-   </a>
-  </div>
-  <script>
-   document.addEventListener('click', function (e) {
+
+    <p style="color: #ccc; font-size: 0.9em;">
+        Au sein de <strong>Mousstall Studio</strong>, nous réalisons des audits approfondis allant du test d'intrusion réseau au reverse engineering d'applications.
+    </p>
+
+    <h3 style="color: #fff; font-size: 1rem;">NOS EXPERTISES :</h3>
+    <ul style="font-size: 0.9em; color: #ccc;">
+        <li>Tests d'intrusion (Web &amp; Network Pentesting).</li>
+        <li>Audits de configuration et sécurisation.</li>
+        <li>Analyse forensic et réponse aux incidents.</li>
+    </ul>
+
+    <a class="lab-btn" href="https://github.com/mousstallstudio/Mousstall-Labs" target="_blank">
+        ⚡ ACCÉDER AU LABO DE PENTEST
+    </a>
+
+    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🚀 ACADÉMIE : PENTEST_LOGS</h3>
+    
+    <div id="academy-content">
+        <div class="module-container">
+            <button class="accordion" style="border-left: 4px solid #00f2ff;">
+                > AUDIT_LOG : LES FONDATIONS DE LA CYBERSÉCURITÉ
+            </button>
+            <div class="panel">
+                <div class="lesson">
+                    <h3>LES FONDATIONS DE LA CYBERSÉCURITÉ</h3>
+                    <div style="margin: 20px 0; text-align: center;">
+                        <iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/uoogZrxncqY" style="border: 1px solid #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);" width="100%"></iframe>
+                    </div>
+                    <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">
+La cybersécurité repose sur un modèle fondamental : la Triade CIA (Confidentialité, Intégrité, Disponibilité).
+                    </p>
+
+                    <div class="exercise-box" style="border-left: 3px solid #00f2ff; background: #0d0d0d; padding: 15px; font-family: 'Courier New', monospace;">
+                        <h4 style="color: #00f2ff; margin-top: 0;">🎯 MISSION_QUIZ</h4>
+                        <p style="color: #ccc;">Un pirate intercepte un message secret et le modifie avant qu'il n'arrive à destination. Quel pilier est brisé ?</p>
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li><label><input name="q1" type="radio" value="A"/> A) La Confidentialité</label></li>
+                            <li><label><input name="q1" type="radio" value="B"/> B) L'Intégrité</label></li>
+                            <li><label><input name="q1" type="radio" value="C"/> C) La Disponibilité</label></li>
+                        </ul>
+                        <button class="btn-valider" onclick="verifierQuiz(this, 'B')" style="background:transparent; color:#00f2ff; border:1px solid #00f2ff; cursor:pointer; padding:8px; width:100%; margin-top:10px; font-weight:bold;">
+                            EXECUTER LA VERIFICATION
+                        </button>
+                        <div class="resultat-mini" style="margin-top: 10px; padding: 5px; background: #000; border: 1px solid #333; min-height: 20px; font-size: 0.9em;">
+                            <span style="color: #555;">$ waiting for credentials...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="back-link" href="index.html">< [ RETOUR_STUDIO ]</a>
+</div>
+
+<script>
+    /* MENU MOBILE */
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    /* ACCORDÉONS */
+    document.addEventListener('click', function (e) {
         if (e.target.classList.contains('accordion')) {
             e.target.classList.toggle('active');
             var panel = e.target.nextElementSibling;
             panel.style.display = (panel.style.display === "block") ? "none" : "block";
         }
     });
-  </script>
- </body>
+
+    /* LOGIQUE QUIZ */
+    function verifierQuiz(btn, repCorrecte) {
+        const box = btn.closest('.exercise-box');
+        const sel = box.querySelector('input:checked')?.value;
+        const log = box.querySelector('.resultat-mini');
+        
+        if(!sel) {
+            log.innerHTML = '<span style="color:#ffcc00">[!] WARNING : No input detected.</span>';
+        } else if(sel === repCorrecte) {
+            log.innerHTML = '<span style="color:#39ff14">[+] SUCCESS : ACCESS_GRANTED.</span>';
+        } else {
+            log.innerHTML = '<span style="color:#ff003c">[-] ERROR : ACCESS_DENIED.</span>';
+        }
+    }
+</script>
+</body>
 </html>

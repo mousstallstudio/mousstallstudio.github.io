@@ -78,7 +78,10 @@
                 </svg>
             </a>
         </div>
-        <div class="nav-links">
+
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -132,6 +135,17 @@
 </div>
 
 <script>
+    /* LOGIQUE DU MENU MOBILE */
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    /* LOGIQUE DES ACCORDÉONS DU LAB */
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('accordion')) {
             e.target.classList.toggle("active");
@@ -140,6 +154,7 @@
         }
     });
 
+    /* LOGIQUE DU QUIZ IA */
     function verifierAuto(btn, repCorrecte) {
         const box = btn.closest('.lab-note');
         const selection = box.querySelector('input:checked');

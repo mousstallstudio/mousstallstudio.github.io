@@ -74,7 +74,10 @@
                 </svg>
             </a>
         </div>
-        <div class="nav-links">
+
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -145,6 +148,17 @@
 </div>
 
 <script>
+    /* MENU MOBILE */
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    /* ACCORDÉONS */
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('accordion')) {
             e.target.classList.toggle("active");
@@ -153,6 +167,7 @@
         }
     });
 
+    /* QUIZ DEV */
     function verifierAuto(btn, repCorrecte) {
         const box = btn.closest('.exercise-box');
         const selection = box.querySelector('input:checked');

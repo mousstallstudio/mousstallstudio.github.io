@@ -8,11 +8,21 @@
     <link rel="stylesheet" href="style_index.css">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <style>
-        body { background: #050505; color: #ff003c; font-family: 'Fira Code', monospace; line-height: 1.6; margin: 0; }
+        body { 
+            background: #050505; 
+            color: #ff003c; 
+            font-family: 'Fira Code', monospace; 
+            line-height: 1.6; 
+            margin: 0; 
+        }
         
         .content { 
-            max-width: 850px; margin: 40px auto; border: 1px solid #ff003c; padding: 25px; 
-            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); background: rgba(10, 0, 0, 0.8); 
+            max-width: 850px; 
+            margin: 40px auto; 
+            border: 1px solid #ff003c; 
+            padding: 25px; 
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); 
+            background: rgba(10, 0, 0, 0.8); 
         }
 
         h1 { border-bottom: 2px solid #ff003c; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.4rem; }
@@ -42,10 +52,11 @@
         .btn-valider { 
             background: transparent; border: 1px solid #ff003c; color: #ff003c; 
             cursor: pointer; padding: 10px; width: 100%; font-family: 'Fira Code'; margin-top: 10px; 
+            font-weight: bold;
         }
-        .btn-valider:hover { background: #ff003c; color: #000; font-weight: bold; }
+        .btn-valider:hover { background: #ff003c; color: #000; }
 
-        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
+        .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; font-family: 'Fira Code', monospace; }
 
         @media screen and (max-width: 600px) {
             body { padding: 0; }
@@ -75,12 +86,16 @@
                 </svg>
             </a>
         </div>
-        <div class="nav-links">
+        
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
             <a href="soutien.html">Soutien</a>
         </div>
+        
         <div class="nav-icons">
             <span class="divider">|</span>
             <a href="soutien.html" title="Support">👤</a>
@@ -117,10 +132,8 @@
             <div class="lesson">
                 <h3>LA MAGIE DES POLYGONES</h3>
                 <p style="color: #eee; font-size: 0.9em;">
-                    Le "Low-Poly" consiste à créer des modèles avec un nombre réduit de faces. C'est essentiel pour garder tes jeux fluides sur ton Acer sous Lubuntu. Moins il y a de polygones, moins le processeur Intel Core i3 travaille.
+                    Le "Low-Poly" est essentiel pour maintenir la fluidité sur des configurations légères. Moins il y a de faces à calculer, plus le processeur peut se concentrer sur la logique du jeu.
                 </p>
-                
-                
                 
                 <div class="vfx-box">
                     <h4 style="color: #ff003c; margin-top: 0;">🎯 OPTIMIZATION_QUIZ</h4>
@@ -139,6 +152,16 @@
 </div>
 
 <script>
+    /* MENU MOBILE */
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    /* ACCORDÉONS */
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('accordion')) {
             e.target.classList.toggle("active");
@@ -147,6 +170,7 @@
         }
     });
 
+    /* LOGIQUE QUIZ */
     function verifierAuto(btn, repCorrecte) {
         const box = btn.closest('.vfx-box');
         const selection = box.querySelector('input:checked');

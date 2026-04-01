@@ -10,7 +10,7 @@
 </head>
 <body>
 
-   <nav class="top-nav">
+<nav class="top-nav">
     <div class="nav-container">
         <div class="nav-logo">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
@@ -30,7 +30,9 @@
             </a>
         </div>
 
-        <div class="nav-links">
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -44,61 +46,72 @@
     </div>
 </nav>
 
-    <div class="container">
-        <header class="hero-section" style="min-height: 30vh;">
-            <div class="hero-content">
-                <h1 class="glitch-text">Centre d'Opérations (NOC/SOC)</h1>
-                <p class="hero-subtitle">Besoin d'aide pour configurer une solution ou déclarer une vulnérabilité critique ? Notre support technique de Dakar est là.</p>
-            </div>
-        </header>
+<div class="container">
+    <header class="hero-section" style="min-height: 30vh;">
+        <div class="hero-content">
+            <h1 class="glitch-text">Centre d'Opérations (NOC/SOC)</h1>
+            <p class="hero-subtitle">Besoin d'aide pour configurer une solution ou déclarer une vulnérabilité critique ? Notre support technique de Dakar est là.</p>
+        </div>
+    </header>
 
-        <section class="grid-container" style="max-width: 900px; margin: 0 auto; gap: 40px;">
+    <section class="grid-container" style="max-width: 900px; margin: 0 auto; gap: 40px;">
+        
+        <div class="card" style="border-top: 5px solid var(--neon-blue);">
+            <h3 style="color: var(--neon-blue); margin-bottom: 20px;">Ouvrir un ticket</h3>
             
-            <div class="card" style="border-top: 5px solid var(--neon-blue);">
-                <h3 style="color: var(--neon-blue); margin-bottom: 20px;">Ouvrir un ticket</h3>
+            <form action="https://formspree.io/f/xwvwqwdk" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
                 
-                <form action="https://formspree.io/f/xwvwqwdk" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                    
-                    <label style="color: #aaa; font-size: 0.8rem;">ID Client / Nom de l'entreprise :</label>
-                    <input type="text" name="client" placeholder="Ex: MS-2026-DK" required>
+                <label style="color: #aaa; font-size: 0.8rem;">ID Client / Nom de l'entreprise :</label>
+                <input type="text" name="client" placeholder="Ex: MS-2026-DK" required>
 
-                    <label style="color: #aaa; font-size: 0.8rem;">Votre adresse E-mail (pour la réponse) :</label>
-                    <input type="email" name="email" placeholder="exemple@mail.com" required>
-                    
-                    <label style="color: #aaa; font-size: 0.8rem;">Sujet (Urgence, Bug, Devis) :</label>
-                    <input type="text" name="subject" required>
-                    
-                    <label style="color: #aaa; font-size: 0.8rem;">Description détaillée :</label>
-                    <textarea name="message" rows="5" required></textarea>
+                <label style="color: #aaa; font-size: 0.8rem;">Votre adresse E-mail (pour la réponse) :</label>
+                <input type="email" name="email" placeholder="exemple@mail.com" required>
+                
+                <label style="color: #aaa; font-size: 0.8rem;">Sujet (Urgence, Bug, Devis) :</label>
+                <input type="text" name="subject" required>
+                
+                <label style="color: #aaa; font-size: 0.8rem;">Description détaillée :</label>
+                <textarea name="message" rows="5" required></textarea>
 
-                    <input type="text" name="_gotcha" style="display:none">
-                    
-                    <button type="submit" class="btn-primary-red" style="background: var(--neon-blue); color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer;">
-                        ENVOYER LA REQUÊTE
-                    </button>
-                </form>
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="btn-primary-red" style="background: var(--neon-blue); color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer;">
+                    ENVOYER LA REQUÊTE
+                </button>
+            </form>
+        </div>
+
+        <div class="card" style="border-top: 5px solid var(--neon-green);">
+            <h3 style="color: #fff; margin-bottom: 20px;">[ FAQ_RAPIDE ]</h3>
+            
+            <div style="margin-bottom: 20px;">
+                <strong style="color: var(--neon-green); font-size: 0.9rem;">> Quels sont vos délais d'intervention ?</strong>
+                <p style="color: #ccc; font-size: 0.85rem; margin-top: 8px;">Pour une faille critique (niveau Rouge), notre équipe réagit en moins de 4 heures.</p>
             </div>
 
-            <div class="card" style="border-top: 5px solid var(--neon-green);">
-                <h3 style="color: #fff; margin-bottom: 20px;">[ FAQ_RAPIDE ]</h3>
-                
-                <div style="margin-bottom: 20px;">
-                    <strong style="color: var(--neon-green); font-size: 0.9rem;">> Quels sont vos délais d'intervention ?</strong>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-top: 8px;">Pour une faille critique (niveau Rouge), notre équipe réagit en moins de 4 heures.</p>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <strong style="color: var(--neon-green); font-size: 0.9rem;">> Faites-vous de la réponse à incident ?</strong>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-top: 8px;">Oui, nous isolons les menaces et nettoyons vos serveurs (Ransomware, DDoS).</p>
-                </div>
+            <div style="margin-bottom: 20px;">
+                <strong style="color: var(--neon-green); font-size: 0.9rem;">> Faites-vous de la réponse à incident ?</strong>
+                <p style="color: #ccc; font-size: 0.85rem; margin-top: 8px;">Oui, nous isolons les menaces et nettoyons vos serveurs (Ransomware, DDoS).</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="social-bar">
-            <a href="index.html">#RETOUR_ACCUEIL</a>
-            <span class="highlight-green">© 2026 Mousstall Studio</span>
-        </footer>
-    </div>
+    <footer class="social-bar">
+        <a href="index.html">#RETOUR_ACCUEIL</a>
+        <span class="highlight-green">© 2026 Mousstall Studio</span>
+    </footer>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+</script>
 
 </body>
 </html>

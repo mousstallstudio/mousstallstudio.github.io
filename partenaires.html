@@ -10,7 +10,7 @@
 </head>
 <body>
 
-   <nav class="top-nav">
+<nav class="top-nav">
     <div class="nav-container">
         <div class="nav-logo">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
@@ -30,7 +30,9 @@
             </a>
         </div>
 
-        <div class="nav-links">
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -44,44 +46,55 @@
     </div>
 </nav>
 
-    <div class="container">
-        <header class="hero-section" style="min-height: 30vh; text-align: center;">
-            <div class="hero-content">
-                <h1 class="glitch-text">Alliance & Technologies</h1>
-                <p class="hero-subtitle">Mousstall Studio s'appuie sur les standards de l'industrie et les leaders de l'open-source pour sécuriser vos infrastructures.</p>
-            </div>
-        </header>
+<div class="container">
+    <header class="hero-section" style="min-height: 30vh; text-align: center;">
+        <div class="hero-content">
+            <h1 class="glitch-text">Alliance & Technologies</h1>
+            <p class="hero-subtitle">Mousstall Studio s'appuie sur les standards de l'industrie et les leaders de l'open-source pour sécuriser vos infrastructures.</p>
+        </div>
+    </header>
 
-        <section class="services-area">
-            <h2 class="section-title">[ ÉCOSYSTÈME_&_PARTENAIRES ]</h2>
-            <div class="grid-container">
-                <div class="card" style="border-left: 5px solid var(--neon-blue);">
-                    <h3 style="color: var(--neon-blue);">GitHub Security Labs</h3>
-                    <p>Nous participons activement à la recherche de vulnérabilités et partageons nos découvertes via la plateforme GitHub pour sécuriser le code open-source.</p>
-                </div>
-                
-                <div class="card" style="border-left: 5px solid var(--neon-red);">
-                    <h3 style="color: var(--neon-red);">Offensive Security (Kali)</h3>
-                    <p>Nos environnements d'audit s'appuient sur l'écosystème robuste de Kali Linux et les standards de l'Offensive Security pour nos tests d'intrusion.</p>
-                </div>
-                
-                <div class="card" style="border-left: 5px solid var(--neon-green);">
-                    <h3 style="color: var(--neon-green);">OWASP Foundation</h3>
-                    <p>Nos processus de développement et d'audit web respectent strictement les référentiels du Top 10 de l'OWASP pour garantir des applications blindées.</p>
-                </div>
-                
-                <div class="card" style="border-left: 5px solid #ffc400;">
-                    <h3 style="color: #ffc400;">Google Dev (Flutter/Dart)</h3>
-                    <p>Pour notre pôle développement (DEV_CENTER), nous utilisons l'architecture Flutter pour des applications multiplateformes sécurisées.</p>
-                </div>
+    <section class="services-area">
+        <h2 class="section-title">[ ÉCOSYSTÈME_&_PARTENAIRES ]</h2>
+        <div class="grid-container">
+            <div class="card" style="border-left: 5px solid var(--neon-blue);">
+                <h3 style="color: var(--neon-blue);">GitHub Security Labs</h3>
+                <p>Nous participons activement à la recherche de vulnérabilités et partageons nos découvertes via la plateforme GitHub pour sécuriser le code open-source.</p>
             </div>
-        </section>
+            
+            <div class="card" style="border-left: 5px solid var(--neon-red);">
+                <h3 style="color: var(--neon-red);">Offensive Security (Kali)</h3>
+                <p>Nos environnements d'audit s'appuient sur l'écosystème robuste de Kali Linux et les standards de l'Offensive Security pour nos tests d'intrusion.</p>
+            </div>
+            
+            <div class="card" style="border-left: 5px solid var(--neon-green);">
+                <h3 style="color: var(--neon-green);">OWASP Foundation</h3>
+                <p>Nos processus de développement et d'audit web respectent strictement les référentiels du Top 10 de l'OWASP pour garantir des applications blindées.</p>
+            </div>
+            
+            <div class="card" style="border-left: 5px solid #ffc400;">
+                <h3 style="color: #ffc400;">Google Dev (Flutter/Dart)</h3>
+                <p>Pour notre pôle développement (DEV_CENTER), nous utilisons l'architecture Flutter pour des applications multiplateformes sécurisées.</p>
+            </div>
+        </div>
+    </section>
 
-        <footer class="social-bar">
-            <a href="index.html">#RETOUR_ACCUEIL</a>
-            <span class="highlight-green">© 2026 Mousstall Studio - Dakar</span>
-        </footer>
-    </div>
+    <footer class="social-bar">
+        <a href="index.html">#RETOUR_ACCUEIL</a>
+        <span class="highlight-green">© 2026 Mousstall Studio - Dakar</span>
+    </footer>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+</script>
 
 </body>
 </html>

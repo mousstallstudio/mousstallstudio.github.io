@@ -10,7 +10,7 @@
 </head>
 <body>
 
-   <nav class="top-nav">
+<nav class="top-nav">
     <div class="nav-container">
         <div class="nav-logo">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
@@ -30,7 +30,9 @@
             </a>
         </div>
 
-        <div class="nav-links">
+        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Accueil</a>
             <a href="services.html">Magasin</a>
             <a href="partenaires.html">Partenaires</a>
@@ -44,56 +46,67 @@
     </div>
 </nav>
 
-    <div class="container">
-        <header class="hero-section" style="border-color: var(--neon-red);">
-            <div class="hero-content">
-                <h1 class="glitch-text" style="color: var(--neon-red);">Catalogue des Services</h1>
-                <p class="hero-subtitle">Des solutions d'audit offensif et de développement sur mesure pour sécuriser votre infrastructure à Dakar.</p>
+<div class="container">
+    <header class="hero-section" style="border-color: var(--neon-red);">
+        <div class="hero-content">
+            <h1 class="glitch-text" style="color: var(--neon-red);">Catalogue des Services</h1>
+            <p class="hero-subtitle">Des solutions d'audit offensif et de développement sur mesure pour sécuriser votre infrastructure.</p>
+        </div>
+    </header>
+
+    <section class="services-area">
+        <h2 class="section-title">[ SOLUTIONS_DISPONIBLES ]</h2>
+        
+        <div class="grid-container">
+            <div class="card" style="border-left: 5px solid var(--neon-blue);">
+                <h3 style="color: var(--neon-blue);">Pack Audit Express</h3>
+                <p>Scan complet des ports, détection de vulnérabilités critiques et rapport de remédiation priorisé.</p>
+                <span class="highlight-green">Délai : 48h</span>
+                <a href="soutien.html" class="btn-details" style="color: var(--neon-blue); border-color: var(--neon-blue);">COMMANDER</a>
             </div>
-        </header>
 
-        <section class="services-area">
-            <h2 class="section-title">[ SOLUTIONS_DISPONIBLES ]</h2>
-            
-            <div class="grid-container">
-                <div class="card" style="border-left: 5px solid var(--neon-blue);">
-                    <h3 style="color: var(--neon-blue);">Pack Audit Express</h3>
-                    <p>Scan complet des ports, détection de vulnérabilités critiques et rapport de remédiation priorisé.</p>
-                    <span class="highlight-green">Délai : 48h</span>
-                    <a href="soutien.html" class="btn-details" style="color: var(--neon-blue); border-color: var(--neon-blue);">COMMANDER</a>
-                </div>
-
-                <div class="card" style="border-left: 5px solid var(--neon-green);">
-                    <h3 style="color: var(--neon-green);">Dev Flutter Secure</h3>
-                    <p>Création d'applications mobiles (Android/iOS) avec intégration native de la sécurité des données.</p>
-                    <span class="highlight-green">Technos : Dart / Flutter</span>
-                    <a href="soutien.html" class="btn-details" style="color: var(--neon-green); border-color: var(--neon-green);">DEVIS LIBRE</a>
-                </div>
-
-                <div class="card" style="border-left: 5px solid var(--neon-red);">
-                    <h3 style="color: var(--neon-red);">Pentest Web & API</h3>
-                    <p>Test d'intrusion approfondi basé sur le Top 10 OWASP pour vos plateformes e-commerce et backends.</p>
-                    <span class="highlight-green">Standard : OWASP 2026</span>
-                    <a href="soutien.html" class="btn-details" style="color: var(--neon-red); border-color: var(--neon-red);">RESERVER</a>
-                </div>
+            <div class="card" style="border-left: 5px solid var(--neon-green);">
+                <h3 style="color: var(--neon-green);">Dev Flutter Secure</h3>
+                <p>Création d'applications mobiles (Android/iOS) avec intégration native de la sécurité des données.</p>
+                <span class="highlight-green">Technos : Dart / Flutter</span>
+                <a href="soutien.html" class="btn-details" style="color: var(--neon-green); border-color: var(--neon-green);">DEVIS LIBRE</a>
             </div>
-        </section>
 
-        <section class="services-area" style="margin-top: 60px;">
-            <h2 class="section-title">[ LABORATOIRE_&_OUTILS ]</h2>
-            <div class="card" style="background: rgba(255, 0, 60, 0.05); border: 1px dashed var(--neon-red);">
-                <p style="text-align: center; padding: 20px;">
-                    <strong style="color: var(--neon-red);">SECTION MAGASIN :</strong> Bientôt disponible. 
-                    Nous proposerons des scripts d'automatisation Python et des configurations Docker sécurisées.
-                </p>
+            <div class="card" style="border-left: 5px solid var(--neon-red);">
+                <h3 style="color: var(--neon-red);">Pentest Web & API</h3>
+                <p>Test d'intrusion approfondi basé sur le Top 10 OWASP pour vos plateformes e-commerce et backends.</p>
+                <span class="highlight-green">Standard : OWASP 2026</span>
+                <a href="soutien.html" class="btn-details" style="color: var(--neon-red); border-color: var(--neon-red);">RESERVER</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="social-bar">
-            <a href="index.html">#RETOUR_ACCUEIL</a>
-            <span class="highlight-green">Mousstall Studio - Dakar, Sénégal</span>
-        </footer>
-    </div>
+    <section class="services-area" style="margin-top: 60px;">
+        <h2 class="section-title">[ LABORATOIRE_&_OUTILS ]</h2>
+        <div class="card" style="background: rgba(255, 0, 60, 0.05); border: 1px dashed var(--neon-red);">
+            <p style="text-align: center; padding: 20px;">
+                <strong style="color: var(--neon-red);">SECTION MAGASIN :</strong> Bientôt disponible. 
+                Nous proposerons des scripts d'automatisation Python et des configurations Docker sécurisées.
+            </p>
+        </div>
+    </section>
+
+    <footer class="social-bar">
+        <a href="index.html">#RETOUR_ACCUEIL</a>
+        <span class="highlight-green">Mousstall Studio - Dakar, Sénégal</span>
+    </footer>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+</script>
 
 </body>
 </html>

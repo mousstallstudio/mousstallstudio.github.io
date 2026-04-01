@@ -287,3 +287,53 @@ form input:focus { border-color: var(--neon-blue); }
         background: rgba(77, 238, 234, 0.1);
     }
 }
+
+
+/* --- NAVIGATION UNIFIÉE --- */
+.mobile-btn { display: none; } /* Caché sur PC */
+
+@media screen and (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .mobile-btn {
+        display: block; /* Visible sur Mobile */
+        background: transparent;
+        border: 1px solid #4deeea;
+        color: #4deeea;
+        font-family: 'Fira Code', monospace;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 0.8em;
+    }
+
+    .nav-links {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        width: 100%;
+        background: rgba(5, 5, 5, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+        border-bottom: 2px solid #4deeea;
+        padding: 15px 0;
+    }
+
+    /* Classe activée par le JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(77, 238, 234, 0.1);
+    }
+
+    .nav-icons { display: none; } /* Cache les icônes à côté du logo sur mobile */
+}
+
