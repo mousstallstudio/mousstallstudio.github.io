@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>IA & Automation | Mousstall Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="style_index.css">
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
-    <style>
-        body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; line-height: 1.6; margin: 0; }
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   IA &amp; Automation | Mousstall Studio
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
+  <link href="style_index.css" rel="stylesheet"/>
+  <link href="logo.svg" rel="icon" type="image/svg+xml"/>
+  <style>
+   body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; line-height: 1.6; margin: 0; }
         
         .content { 
             max-width: 850px; margin: 40px auto; border: 1px solid #f1c40f; padding: 25px; 
@@ -55,86 +57,163 @@
             .content { padding: 15px; margin: 20px 10px; }
             iframe { height: 210px; }
         }
-    </style>
-</head>
-<body>
-
-<nav class="top-nav">
-    <div class="nav-container">
-        <div class="nav-logo">
-            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-                <svg width="220" height="50" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="neonGlow">
-                            <feGaussianBlur stdDeviation="2.5" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                    </defs>
-                    <text x="10" y="50" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" fill="#4deeea" filter="url(#neonGlow)">MOUSSTALL STUDIO</text>
-                    <text x="12" y="80" font-family="'Fira Code', monospace" font-size="14" fill="#888">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
-                    <rect x="440" y="65" width="10" height="15" fill="#00853f" />
-                    <rect x="450" y="65" width="10" height="15" fill="#fdef42" />
-                    <rect x="460" y="65" width="10" height="15" fill="#e31b23" />
-                </svg>
-            </a>
-        </div>
-
-        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
-
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="services.html">Magasin</a>
-            <a href="partenaires.html">Partenaires</a>
-            <a href="soutien.html">Soutien</a>
-        </div>
-        <div class="nav-icons">
-            <span class="divider">|</span>
-            <a href="soutien.html" title="Support">👤</a>
-        </div>
+  </style>
+ </head>
+ <body>
+  <nav class="top-nav">
+   <div class="nav-container">
+    <div class="nav-logo">
+     <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+      <svg height="50" viewbox="0 0 500 100" width="220" xmlns="http://www.w3.org/2000/svg">
+       <defs>
+        <filter id="neonGlow">
+         <fegaussianblur result="blur" stddeviation="2.5">
+         </fegaussianblur>
+         <fecomposite in="SourceGraphic" in2="blur" operator="over">
+         </fecomposite>
+        </filter>
+       </defs>
+       <text fill="#4deeea" filter="url(#neonGlow)" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" x="10" y="50">
+        MOUSSTALL STUDIO
+       </text>
+       <text fill="#888" font-family="'Fira Code', monospace" font-size="14" x="12" y="80">
+        OFFENSIVE SECURITY &amp; DIGITAL CREATION
+       </text>
+       <rect fill="#00853f" height="15" width="10" x="440" y="65">
+       </rect>
+       <rect fill="#fdef42" height="15" width="10" x="450" y="65">
+       </rect>
+       <rect fill="#e31b23" height="15" width="10" x="460" y="65">
+       </rect>
+      </svg>
+     </a>
     </div>
-</nav>
-
-<div class="content">
-    <h1>[ MOUSSTALL_LABS : IA ]</h1>
-    <p><span class="status">STATUS : EN DÉVELOPPEMENT</span></p>
-    
-    <p style="color: #eee; font-size: 0.9em;">L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.</p>
-    
-    <p style="color: #ccc; font-size: 0.9em;">Axes de recherche stratégiques :</p>
-    <ul style="font-size: 0.9em; color: #ccc;">
-        <li>Automatisation de scans réseau via scripts Python.</li>
-        <li>Génération de payloads et scripts via LLM.</li>
-        <li>Optimisation des interfaces Flutter par l'IA.</li>
-    </ul>
-
-    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🧠 ACADÉMIE : AI_RESEARCH</h3>
-    
-    <div id="academy-content">
-        <button class="accordion" style="border-left: 4px solid #f1c40f;">> AI_LOG : COMPRENDRE LES LLM</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>INTRODUCTION AUX MODÈLES DE LANGAGE</h3>
-                <p style="color: #eee; font-size: 0.9em;">
-                    Un LLM (Large Language Model) est un système d'IA entraîné sur des milliards de textes pour prédire le mot suivant dans une séquence. Pour un pentester, c'est un assistant redoutable pour expliquer un code complexe ou générer des scripts Nmap personnalisés.
-                </p>
-                
-                <div class="lab-note">
-                    <h4 style="color: #f1c40f; margin-top: 0;">🎯 NEURAL_QUIZ</h4>
-                    <p style="color: #ccc; font-size: 0.85em;">Quelle technique permet d'orienter la réponse d'une IA en lui donnant des instructions précises ?</p>
-                    <label class="quiz-label"><input type="radio" name="ai1" value="A"> A) Le Prompt Engineering</label>
-                    <label class="quiz-label"><input type="radio" name="ai1" value="B"> B) Le Brute Force</label>
-                    <label class="quiz-label"><input type="radio" name="ai1" value="C"> C) Le SQL Injection</label>
-                    <button class="btn-valider" onclick="verifierAuto(this, 'A')">TESTER LA LOGIQUE</button>
-                    <p class="resultat-mini">$ waiting for neural handshake...</p>
-                </div>
-            </div>
-        </div>
+    <button class="mobile-btn" id="menu-toggle">
+     MENU [=]
+    </button>
+    <div class="nav-links" id="nav-links">
+     <a href="index.html">
+      Accueil
+     </a>
+     <a href="services.html">
+      Magasin
+     </a>
+     <a href="partenaires.html">
+      Partenaires
+     </a>
+     <a href="soutien.html">
+      Soutien
+     </a>
     </div>
-
-    <a class="back-link" href="index.html">< [ RETOUR_STUDIO ]</a>
-</div>
-
-<script>
+    <div class="nav-icons">
+     <span class="divider">
+      |
+     </span>
+     <a href="soutien.html" title="Support">
+      👤
+     </a>
+    </div>
+   </div>
+  </nav>
+  <div class="content">
+   <h1>
+    [ MOUSSTALL_LABS : IA ]
+   </h1>
+   <p>
+    <span class="status">
+     STATUS : EN DÉVELOPPEMENT
+    </span>
+   </p>
+   <p style="color: #eee; font-size: 0.9em;">
+    L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.
+   </p>
+   <p style="color: #ccc; font-size: 0.9em;">
+    Axes de recherche stratégiques :
+   </p>
+   <ul style="font-size: 0.9em; color: #ccc;">
+    <li>
+     Automatisation de scans réseau via scripts Python.
+    </li>
+    <li>
+     Génération de payloads et scripts via LLM.
+    </li>
+    <li>
+     Optimisation des interfaces Flutter par l'IA.
+    </li>
+   </ul>
+   <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">
+    🧠 ACADÉMIE : AI_RESEARCH
+   </h3>
+   <div id="academy-content">
+    <a class="back-link" href="index.html">
+     &lt; [ RETOUR_STUDIO ]
+    </a>
+    <div class="module-container" data-title="Comment fonctionne une IA (LLM) ?">
+     <button class="accordion" style="border-left: 4px solid #f1c40f;">
+      &gt; AI_LOG : Comment fonctionne une IA (LLM) ?
+     </button>
+     <div class="panel">
+      <div class="lesson">
+       <h3>
+        Comment fonctionne une IA (LLM) ?
+       </h3>
+       <div style="margin: 20px 0; text-align: center;">
+        <iframe allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/1RRHr3dFogQ" style="border: 1px solid #f1c40f; box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);" width="100%">
+        </iframe>
+       </div>
+       <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">
+Derrière les prouesses de l'Intelligence Artificielle se cachent les LLM (Large Language Models). Ce sont des algorithmes entraînés à traiter et générer du langage humain en prédisant statistiquement le mot suivant. Dans ce module, nous explorons comment ces "cerveaux numériques" transforment des données brutes en réponses intelligentes. Comprendre cette architecture est la première étape pour tout développeur souhaitant intégrer l'IA dans ses propres outils ou automatiser son flux de travail sous Linux.
+       </p>
+       <div class="lab-note" style="border-left: 3px solid #f1c40f; background: #0a0a0a; padding: 15px; font-family: 'Courier New', monospace;">
+        <h4 style="color: #f1c40f; margin-top: 0;">
+         🧠 NEURAL_TEST
+        </h4>
+        <p style="color: #ccc;">
+         Que signifie l'acronyme "LLM" dans le domaine de l'intelligence artificielle ?
+        </p>
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
+         <li>
+          <label>
+           <input name="q_Comment_fonctionne_une_IA_(LLM)_?" type="radio" value="A"/>
+           <span style="color:#f1c40f;">
+            A)
+           </span>
+           Low Logic Memory
+          </label>
+         </li>
+         <li>
+          <label>
+           <input name="q_Comment_fonctionne_une_IA_(LLM)_?" type="radio" value="B"/>
+           <span style="color:#f1c40f;">
+            B)
+           </span>
+           Large Language Model
+          </label>
+         </li>
+         <li>
+          <label>
+           <input name="q_Comment_fonctionne_une_IA_(LLM)_?" type="radio" value="C"/>
+           <span style="color:#f1c40f;">
+            C)
+           </span>
+           Linux Layer Mode
+          </label>
+         </li>
+        </ul>
+        <button class="btn-valider" onclick="verifierAuto(this, 'B')" style="background:transparent; color:#f1c40f; border:1px solid #f1c40f; cursor:pointer; padding:10px; width:100%; font-weight:bold;">
+         EXÉCUTER L'ANALYSE NEURALE
+        </button>
+        <p class="resultat-mini" style="margin-top: 15px; font-weight: bold; font-size: 0.9em; background: #000; padding: 8px; border: 1px solid #222;">
+         <span style="color: #555;">
+          &gt;&gt; status: awaiting data_stream...
+         </span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <script>
     /* LOGIQUE DU MENU MOBILE */
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
@@ -174,6 +253,7 @@
             feedback.style.color = "#ff003c";
         }
     }
-</script>
-</body>
+   </script>
+  </div>
+ </body>
 </html>

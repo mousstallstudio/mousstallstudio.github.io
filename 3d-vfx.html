@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D & VFX | Mousstall Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_index.css">
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
-    <style>
-        body { 
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   3D &amp; VFX | Mousstall Studio
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap" rel="stylesheet"/>
+  <link href="style_index.css" rel="stylesheet"/>
+  <link href="logo.svg" rel="icon" type="image/svg+xml"/>
+  <style>
+   body { 
             background: #050505; 
             color: #ff003c; 
             font-family: 'Fira Code', monospace; 
@@ -63,95 +65,182 @@
             .content { padding: 15px; margin: 20px 10px; }
             iframe { height: 210px; }
         }
-    </style>
-</head>
-<body>
-
-<nav class="top-nav">
-    <div class="nav-container">
-        <div class="nav-logo">
-            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-                <svg width="220" height="50" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="neonGlow">
-                            <feGaussianBlur stdDeviation="2.5" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                    </defs>
-                    <text x="10" y="50" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" fill="#4deeea" filter="url(#neonGlow)">MOUSSTALL STUDIO</text>
-                    <text x="12" y="80" font-family="'Fira Code', monospace" font-size="14" fill="#888">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
-                    <rect x="440" y="65" width="10" height="15" fill="#00853f" />
-                    <rect x="450" y="65" width="10" height="15" fill="#fdef42" />
-                    <rect x="460" y="65" width="10" height="15" fill="#e31b23" />
-                </svg>
-            </a>
-        </div>
-        
-        <button id="menu-toggle" class="mobile-btn">MENU [=]</button>
-
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="services.html">Magasin</a>
-            <a href="partenaires.html">Partenaires</a>
-            <a href="soutien.html">Soutien</a>
-        </div>
-        
-        <div class="nav-icons">
-            <span class="divider">|</span>
-            <a href="soutien.html" title="Support">👤</a>
-        </div>
+  </style>
+ </head>
+ <body>
+  <nav class="top-nav">
+   <div class="nav-container">
+    <div class="nav-logo">
+     <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+      <svg height="50" viewbox="0 0 500 100" width="220" xmlns="http://www.w3.org/2000/svg">
+       <defs>
+        <filter id="neonGlow">
+         <fegaussianblur result="blur" stddeviation="2.5">
+         </fegaussianblur>
+         <fecomposite in="SourceGraphic" in2="blur" operator="over">
+         </fecomposite>
+        </filter>
+       </defs>
+       <text fill="#4deeea" filter="url(#neonGlow)" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" x="10" y="50">
+        MOUSSTALL STUDIO
+       </text>
+       <text fill="#888" font-family="'Fira Code', monospace" font-size="14" x="12" y="80">
+        OFFENSIVE SECURITY &amp; DIGITAL CREATION
+       </text>
+       <rect fill="#00853f" height="15" width="10" x="440" y="65">
+       </rect>
+       <rect fill="#fdef42" height="15" width="10" x="450" y="65">
+       </rect>
+       <rect fill="#e31b23" height="15" width="10" x="460" y="65">
+       </rect>
+      </svg>
+     </a>
     </div>
-</nav>
-
-<div class="content">
-    <h1>[ 3D_VFX_LAB ]</h1>
-    <p style="color: #eee; font-size: 0.9em;">Modélisation, rendu temps réel et effets visuels numériques.</p>
-    
-    <div class="tech-stack">
-        <span class="tag">GODOT_ENGINE</span>
-        <span class="tag">BLENDER</span>
-        <span class="tag">VFX_SHADERS</span>
-        <span class="tag">REAL-TIME_RENDER</span>
-        <span class="tag">LINUX_GFX</span>
+    <button class="mobile-btn" id="menu-toggle">
+     MENU [=]
+    </button>
+    <div class="nav-links" id="nav-links">
+     <a href="index.html">
+      Accueil
+     </a>
+     <a href="services.html">
+      Magasin
+     </a>
+     <a href="partenaires.html">
+      Partenaires
+     </a>
+     <a href="soutien.html">
+      Soutien
+     </a>
     </div>
-
-    <p style="color: #ccc; font-size: 0.9em;">Au sein de <strong>Mousstall Studio</strong>, nous explorons la création d'actifs 3D optimisés pour le web et le moteur Godot.</p>
-    
-    <h3 style="color: #fff; font-size: 1rem;">NOS AXES DE CRÉATION :</h3>
-    <ul style="font-size: 0.9em; color: #ccc;">
-        <li>Modélisation "Low-Poly" pour maximiser les FPS.</li>
-        <li>Shaders GLSL pour des effets de lumière néon.</li>
-        <li>Post-processing pour un look cinématographique.</li>
-    </ul>
-
-    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🎨 ACADÉMIE : RENDER_LOGS</h3>
-
-    <div id="academy-content">
-        <button class="accordion" style="border-left: 4px solid #ff003c;">> RENDER_LOG : OPTIMISATION LOW-POLY</button>
-        <div class="panel">
-            <div class="lesson">
-                <h3>LA MAGIE DES POLYGONES</h3>
-                <p style="color: #eee; font-size: 0.9em;">
-                    Le "Low-Poly" est essentiel pour maintenir la fluidité sur des configurations légères. Moins il y a de faces à calculer, plus le processeur peut se concentrer sur la logique du jeu.
-                </p>
-                
-                <div class="vfx-box">
-                    <h4 style="color: #ff003c; margin-top: 0;">🎯 OPTIMIZATION_QUIZ</h4>
-                    <p style="color: #ccc; font-size: 0.85em;">Quel outil permet de réduire automatiquement le nombre de polygones d'un objet dans Blender ?</p>
-                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="A"> A) Subdivision Surface</label>
-                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="B"> B) Decimate Modifier</label>
-                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="C"> C) Extrude Tool</label>
-                    <button class="btn-valider" onclick="verifierAuto(this, 'B')">LANCER LE RENDU</button>
-                    <p class="resultat-mini">$ waiting for GPU buffer...</p>
-                </div>
-            </div>
-        </div>
+    <div class="nav-icons">
+     <span class="divider">
+      |
+     </span>
+     <a href="soutien.html" title="Support">
+      👤
+     </a>
     </div>
-
-    <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
-</div>
-
-<script>
+   </div>
+  </nav>
+  <div class="content">
+   <h1>
+    [ 3D_VFX_LAB ]
+   </h1>
+   <p style="color: #eee; font-size: 0.9em;">
+    Modélisation, rendu temps réel et effets visuels numériques.
+   </p>
+   <div class="tech-stack">
+    <span class="tag">
+     GODOT_ENGINE
+    </span>
+    <span class="tag">
+     BLENDER
+    </span>
+    <span class="tag">
+     VFX_SHADERS
+    </span>
+    <span class="tag">
+     REAL-TIME_RENDER
+    </span>
+    <span class="tag">
+     LINUX_GFX
+    </span>
+   </div>
+   <p style="color: #ccc; font-size: 0.9em;">
+    Au sein de
+    <strong>
+     Mousstall Studio
+    </strong>
+    , nous explorons la création d'actifs 3D optimisés pour le web et le moteur Godot.
+   </p>
+   <h3 style="color: #fff; font-size: 1rem;">
+    NOS AXES DE CRÉATION :
+   </h3>
+   <ul style="font-size: 0.9em; color: #ccc;">
+    <li>
+     Modélisation "Low-Poly" pour maximiser les FPS.
+    </li>
+    <li>
+     Shaders GLSL pour des effets de lumière néon.
+    </li>
+    <li>
+     Post-processing pour un look cinématographique.
+    </li>
+   </ul>
+   <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">
+    🎨 ACADÉMIE : RENDER_LOGS
+   </h3>
+   <div id="academy-content">
+    <a class="back-link" href="index.html">
+     &lt; [ RETOUR_STUDIO ]
+    </a>
+    <div class="module-container" data-title="Les BASES de la MODÉLISATION 3D">
+     <button class="accordion" style="border-left: 4px solid #ff003c;">
+      &gt; RENDER_LOG : Les BASES de la MODÉLISATION 3D
+     </button>
+     <div class="panel">
+      <div class="lesson">
+       <h3>
+        Les BASES de la MODÉLISATION 3D
+       </h3>
+       <div style="margin: 20px 0; text-align: center;">
+        <iframe allowfullscreen="" frameborder="0" height="350" src="https://www.youtube.com/embed/-7_bBRmN5_0" style="border: 1px solid #ff003c; box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);" width="100%">
+        </iframe>
+       </div>
+       <p style="white-space: pre-wrap; color: #eee; margin-bottom: 20px;">
+La modélisation 3D est une technique informatique permettant de représenter des objets selon trois axes : Largeur (X), Profondeur (Y) et Hauteur (Z). Contrairement au cinéma où chaque image est calculée à l'avance, le jeu vidéo nécessite une optimisation constante pour un rendu en temps réel. Ce module t'apprend à différencier la modélisation Hard Surface (objets rigides comme des véhicules ou bâtiments) de la modélisation Organique (sculpture d'êtres vivants).
+       </p>
+       <div class="vfx-box" style="border-left: 3px solid #ff003c; background: #0a0000; padding: 15px; font-family: 'Courier New', monospace;">
+        <h4 style="color: #ff003c; margin-top: 0;">
+         🎯 SHADER_CHALLENGE
+        </h4>
+        <p style="color: #ccc;">
+         Pourquoi utilise-t-on principalement des "Quads" (faces à 4 points) pour les modèles destinés au cinéma ?
+        </p>
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 15px;">
+         <li>
+          <label>
+           <input name="q_Les_BASES_de_la_MODÉLISATION_3D" type="radio" value="A"/>
+           <span style="color:#ff003c;">
+            A)
+           </span>
+           Parce qu'ils sont plus légers que les triangles
+          </label>
+         </li>
+         <li>
+          <label>
+           <input name="q_Les_BASES_de_la_MODÉLISATION_3D" type="radio" value="B"/>
+           <span style="color:#ff003c;">
+            B)
+           </span>
+           Parce qu'ils se divisent uniformément pour augmenter les détails.
+          </label>
+         </li>
+         <li>
+          <label>
+           <input name="q_Les_BASES_de_la_MODÉLISATION_3D" type="radio" value="C"/>
+           <span style="color:#ff003c;">
+            C)
+           </span>
+           Parce qu'ils ne nécessitent pas de textures.
+          </label>
+         </li>
+        </ul>
+        <button class="btn-valider" onclick="verifierAuto(this, 'B')" style="background:transparent; color:#ff003c; border:1px solid #ff003c; cursor:pointer; padding:10px; width:100%; font-weight:bold;">
+         LANCER LE RENDU FINAL
+        </button>
+        <p class="resultat-mini" style="margin-top: 15px; font-weight: bold; font-size: 0.9em; background: #000; padding: 8px; border: 1px solid #222;">
+         <span style="color: #555;">
+          &gt;&gt; pipeline_status: standby...
+         </span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <script>
     /* MENU MOBILE */
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
@@ -190,6 +279,7 @@
             feedback.style.color = "#ff003c";
         }
     }
-</script>
-</body>
+   </script>
+  </div>
+ </body>
 </html>
