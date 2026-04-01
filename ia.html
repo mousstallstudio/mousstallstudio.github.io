@@ -5,11 +5,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>IA & Automation | Mousstall Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style_index.css">
     <style>
-        body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; padding: 20px; line-height: 1.6; margin: 0; }
+        body { background: #050505; color: #f1c40f; font-family: 'Fira Code', monospace; line-height: 1.6; margin: 0; }
         
         .content { 
-            max-width: 850px; margin: auto; border: 1px solid #f1c40f; padding: 25px; 
+            max-width: 850px; margin: 40px auto; border: 1px solid #f1c40f; padding: 25px; 
             box-shadow: 0 0 20px rgba(241, 196, 15, 0.2); background: rgba(10, 10, 0, 0.8); 
         }
 
@@ -35,7 +36,6 @@
         .panel { padding: 15px; background: rgba(0, 0, 0, 0.6); display: none; border: 1px solid #f1c40f; border-top: none; }
         
         .lesson h3 { color: #f1c40f; margin-top: 0; font-size: 1.1rem; }
-        
         .lab-note { background: rgba(241, 196, 15, 0.05); padding: 15px; border-left: 3px solid #f1c40f; margin-top: 15px; }
         
         iframe { width: 100%; height: 350px; border: 1px solid #f1c40f; margin: 10px 0; }
@@ -49,34 +49,83 @@
         .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
         .quiz-label { display: block; margin: 8px 0; cursor: pointer; color: #ccc; font-size: 0.9em; }
 
-        /* --- PATCH MOBILE --- */
         @media screen and (max-width: 600px) {
-            body { padding: 10px; }
-            .content { padding: 15px; }
-            h1 { font-size: 1.1rem; }
+            body { padding: 0; }
+            .content { padding: 15px; margin: 20px 10px; }
             iframe { height: 210px; }
-            .accordion { font-size: 0.75em; padding: 12px; }
         }
     </style>
 </head>
 <body>
+
+<nav class="top-nav">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+                <svg width="220" height="50" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="neonGlow">
+                            <feGaussianBlur stdDeviation="2.5" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+                    <text x="10" y="50" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" fill="#4deeea" filter="url(#neonGlow)">MOUSSTALL STUDIO</text>
+                    <text x="12" y="80" font-family="'Fira Code', monospace" font-size="14" fill="#888">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
+                    <rect x="440" y="65" width="10" height="15" fill="#00853f" />
+                    <rect x="450" y="65" width="10" height="15" fill="#fdef42" />
+                    <rect x="460" y="65" width="10" height="15" fill="#e31b23" />
+                </svg>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Magasin</a>
+            <a href="partenaires.html">Partenaires</a>
+            <a href="soutien.html">Soutien</a>
+        </div>
+        <div class="nav-icons">
+            <span class="divider">|</span>
+            <a href="soutien.html" title="Support">👤</a>
+        </div>
+    </div>
+</nav>
+
 <div class="content">
     <h1>[ MOUSSTALL_LABS : IA ]</h1>
     <p><span class="status">STATUS : EN DÉVELOPPEMENT</span></p>
     
     <p style="color: #eee; font-size: 0.9em;">L'intelligence artificielle au service de l'efficacité technique et de la cybersécurité.</p>
     
-    <p style="color: #ccc; font-size: 0.9em;">Nos axes de recherche :</p>
+    <p style="color: #ccc; font-size: 0.9em;">Axes de recherche stratégiques :</p>
     <ul style="font-size: 0.9em; color: #ccc;">
-        <li>Automatisation de scans via Python.</li>
-        <li>Génération de scripts via LLM.</li>
-        <li>Optimisation de workflows Flutter.</li>
+        <li>Automatisation de scans réseau via scripts Python.</li>
+        <li>Génération de payloads et scripts via LLM.</li>
+        <li>Optimisation des interfaces Flutter par l'IA.</li>
     </ul>
 
     <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🧠 ACADÉMIE : AI_RESEARCH</h3>
     
     <div id="academy-content">
+        <button class="accordion" style="border-left: 4px solid #f1c40f;">> AI_LOG : COMPRENDRE LES LLM</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>INTRODUCTION AUX MODÈLES DE LANGAGE</h3>
+                <p style="color: #eee; font-size: 0.9em;">
+                    Un LLM (Large Language Model) est un système d'IA entraîné sur des milliards de textes pour prédire le mot suivant dans une séquence. Pour un pentester, c'est un assistant redoutable pour expliquer un code complexe ou générer des scripts Nmap personnalisés.
+                </p>
+                
+                <div class="lab-note">
+                    <h4 style="color: #f1c40f; margin-top: 0;">🎯 NEURAL_QUIZ</h4>
+                    <p style="color: #ccc; font-size: 0.85em;">Quelle technique permet d'orienter la réponse d'une IA en lui donnant des instructions précises ?</p>
+                    <label class="quiz-label"><input type="radio" name="ai1" value="A"> A) Le Prompt Engineering</label>
+                    <label class="quiz-label"><input type="radio" name="ai1" value="B"> B) Le Brute Force</label>
+                    <label class="quiz-label"><input type="radio" name="ai1" value="C"> C) Le SQL Injection</label>
+                    <button class="btn-valider" onclick="verifierAuto(this, 'A')">TESTER LA LOGIQUE</button>
+                    <p class="resultat-mini">$ waiting for neural handshake...</p>
+                </div>
+            </div>
         </div>
+    </div>
 
     <a class="back-link" href="index.html">< [ RETOUR_STUDIO ]</a>
 </div>
@@ -91,7 +140,7 @@
     });
 
     function verifierAuto(btn, repCorrecte) {
-        const box = btn.closest('.lab-note') || btn.closest('.exercise-box');
+        const box = btn.closest('.lab-note');
         const selection = box.querySelector('input:checked');
         const feedback = box.querySelector('.resultat-mini');
         

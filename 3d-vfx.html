@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D & VFX | Mousstall Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_index.css">
     <style>
-        /* THÈME ROUGE NÉON / CYBERPUNK */
-        body { background: #050505; color: #ff003c; font-family: 'Fira Code', monospace; padding: 20px; line-height: 1.6; margin: 0; }
+        body { background: #050505; color: #ff003c; font-family: 'Fira Code', monospace; line-height: 1.6; margin: 0; }
         
         .content { 
-            max-width: 850px; margin: auto; border: 1px solid #ff003c; padding: 25px; 
+            max-width: 850px; margin: 40px auto; border: 1px solid #ff003c; padding: 25px; 
             box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); background: rgba(10, 0, 0, 0.8); 
         }
 
@@ -46,75 +46,125 @@
 
         .resultat-mini { font-size: 0.8em; margin-top: 10px; font-weight: bold; }
 
-        /* --- PATCH MOBILE --- */
         @media screen and (max-width: 600px) {
-            body { padding: 10px; }
-            .content { padding: 15px; }
-            h1 { font-size: 1.1rem; }
+            body { padding: 0; }
+            .content { padding: 15px; margin: 20px 10px; }
             iframe { height: 210px; }
-            .accordion { font-size: 0.75em; padding: 12px; }
-            .tag { font-size: 0.65em; }
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>[ 3D_VFX_LAB ]</h1>
-        <p style="color: #eee; font-size: 0.9em;">Modélisation, rendu temps réel et effets visuels numériques.</p>
-        
-        <div class="tech-stack">
-            <span class="tag">GODOT_ENGINE</span>
-            <span class="tag">BLENDER</span>
-            <span class="tag">VFX_SHADERS</span>
-            <span class="tag">REAL-TIME_RENDER</span>
-            <span class="tag">LINUX_GFX</span>
+
+<nav class="top-nav">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+                <svg width="220" height="50" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="neonGlow">
+                            <feGaussianBlur stdDeviation="2.5" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+                    <text x="10" y="50" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" fill="#4deeea" filter="url(#neonGlow)">MOUSSTALL STUDIO</text>
+                    <text x="12" y="80" font-family="'Fira Code', monospace" font-size="14" fill="#888">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
+                    <rect x="440" y="65" width="10" height="15" fill="#00853f" />
+                    <rect x="450" y="65" width="10" height="15" fill="#fdef42" />
+                    <rect x="460" y="65" width="10" height="15" fill="#e31b23" />
+                </svg>
+            </a>
         </div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Magasin</a>
+            <a href="partenaires.html">Partenaires</a>
+            <a href="soutien.html">Soutien</a>
+        </div>
+        <div class="nav-icons">
+            <span class="divider">|</span>
+            <a href="soutien.html" title="Support">👤</a>
+        </div>
+    </div>
+</nav>
 
-        <p style="color: #ccc; font-size: 0.9em;">Au sein de <strong>Mousstall Studio</strong>, nous explorons la création d'environnements immersifs et d'actifs 3D optimisés pour le web et le jeu vidéo.</p>
-        
-        <h3 style="color: #fff; font-size: 1rem;">NOS AXES DE CRÉATION :</h3>
-        <ul style="font-size: 0.9em; color: #ccc;">
-            <li>Modélisation d'actifs "Low-Poly" performants.</li>
-            <li>Programmation de Shaders personnalisés.</li>
-            <li>Intégration d'effets visuels (VFX).</li>
-        </ul>
-
-        <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🎨 ACADÉMIE : RENDER_LOGS</h3>
-
-        <div id="academy-content">
-            </div>
-
-        <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+<div class="content">
+    <h1>[ 3D_VFX_LAB ]</h1>
+    <p style="color: #eee; font-size: 0.9em;">Modélisation, rendu temps réel et effets visuels numériques.</p>
+    
+    <div class="tech-stack">
+        <span class="tag">GODOT_ENGINE</span>
+        <span class="tag">BLENDER</span>
+        <span class="tag">VFX_SHADERS</span>
+        <span class="tag">REAL-TIME_RENDER</span>
+        <span class="tag">LINUX_GFX</span>
     </div>
 
-    <script>
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('accordion')) {
-                e.target.classList.toggle("active");
-                var panel = e.target.nextElementSibling;
-                panel.style.display = (panel.style.display === "block") ? "none" : "block";
-            }
-        });
+    <p style="color: #ccc; font-size: 0.9em;">Au sein de <strong>Mousstall Studio</strong>, nous explorons la création d'actifs 3D optimisés pour le web et le moteur Godot.</p>
+    
+    <h3 style="color: #fff; font-size: 1rem;">NOS AXES DE CRÉATION :</h3>
+    <ul style="font-size: 0.9em; color: #ccc;">
+        <li>Modélisation "Low-Poly" pour maximiser les FPS.</li>
+        <li>Shaders GLSL pour des effets de lumière néon.</li>
+        <li>Post-processing pour un look cinématographique.</li>
+    </ul>
 
-        function verifierAuto(btn, repCorrecte) {
-            const box = btn.closest('.vfx-box') || btn.closest('.exercise-box');
-            const selection = box.querySelector('input:checked');
-            const feedback = box.querySelector('.resultat-mini');
-            
-            if(!selection) {
-                feedback.innerText = ">> STATUS : NO_INPUT";
-                feedback.style.color = "orange";
-                return;
-            }
+    <h3 style="color: #fff; margin-top: 40px; font-size: 1rem;">🎨 ACADÉMIE : RENDER_LOGS</h3>
 
-            if(selection.value === repCorrecte) {
-                feedback.innerText = ">> STATUS : RENDER_SUCCESS";
-                feedback.style.color = "#39ff14"; 
-            } else {
-                feedback.innerText = ">> STATUS : SHADER_ERROR";
-                feedback.style.color = "#ff003c";
-            }
+    <div id="academy-content">
+        <button class="accordion" style="border-left: 4px solid #ff003c;">> RENDER_LOG : OPTIMISATION LOW-POLY</button>
+        <div class="panel">
+            <div class="lesson">
+                <h3>LA MAGIE DES POLYGONES</h3>
+                <p style="color: #eee; font-size: 0.9em;">
+                    Le "Low-Poly" consiste à créer des modèles avec un nombre réduit de faces. C'est essentiel pour garder tes jeux fluides sur ton Acer sous Lubuntu. Moins il y a de polygones, moins le processeur Intel Core i3 travaille.
+                </p>
+                
+                
+                
+                <div class="vfx-box">
+                    <h4 style="color: #ff003c; margin-top: 0;">🎯 OPTIMIZATION_QUIZ</h4>
+                    <p style="color: #ccc; font-size: 0.85em;">Quel outil permet de réduire automatiquement le nombre de polygones d'un objet dans Blender ?</p>
+                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="A"> A) Subdivision Surface</label>
+                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="B"> B) Decimate Modifier</label>
+                    <label style="display:block; margin:5px 0;"><input type="radio" name="vfx1" value="C"> C) Extrude Tool</label>
+                    <button class="btn-valider" onclick="verifierAuto(this, 'B')">LANCER LE RENDU</button>
+                    <p class="resultat-mini">$ waiting for GPU buffer...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-link">< [ RETOUR_STUDIO ]</a>
+</div>
+
+<script>
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('accordion')) {
+            e.target.classList.toggle("active");
+            var panel = e.target.nextElementSibling;
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
         }
-    </script>
+    });
+
+    function verifierAuto(btn, repCorrecte) {
+        const box = btn.closest('.vfx-box');
+        const selection = box.querySelector('input:checked');
+        const feedback = box.querySelector('.resultat-mini');
+        
+        if(!selection) {
+            feedback.innerText = ">> STATUS : NO_INPUT";
+            feedback.style.color = "orange";
+            return;
+        }
+
+        if(selection.value === repCorrecte) {
+            feedback.innerText = ">> STATUS : RENDER_SUCCESS";
+            feedback.style.color = "#39ff14"; 
+        } else {
+            feedback.innerText = ">> STATUS : SHADER_ERROR";
+            feedback.style.color = "#ff003c";
+        }
+    }
+</script>
 </body>
 </html>

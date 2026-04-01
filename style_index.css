@@ -1,0 +1,284 @@
+/* --- VARIABLES & BASE --- */
+:root { 
+    --neon-blue: #00f2ff; 
+    --neon-green: #39ff14; 
+    --neon-red: #ff003c; 
+    --bg-dark: #050505; 
+    --card-bg: rgba(10, 10, 10, 0.9); 
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    background-color: var(--bg-dark); 
+    background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+    color: #e0e0e0; 
+    font-family: 'Fira Code', monospace; 
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- TOP NAVIGATION BAR --- */
+.top-nav {
+    background-color: #0a0a0a; /* Changé pour harmoniser avec le logo sombre */
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 100%; /* Permet au logo de toucher le bord gauche */
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Espace entre logo (gauche) et menu (droite) */
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Force le logo à rester calé à gauche */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #aaa; /* Gris clair pour fond sombre */
+    font-size: 14px;
+    margin-left: 25px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover { 
+    color: var(--neon-blue); 
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.nav-icons { display: flex; align-items: center; margin-left: 25px; }
+.nav-icons a { text-decoration: none; margin-left: 15px; font-size: 18px; }
+.divider { color: #333; margin-left: 15px; }
+
+/* --- MEGA MENU --- */
+.mega-modules-section {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    background: #0f0f0f;
+    border: 1px solid #333;
+    z-index: 9999;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mega-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.column-header {
+    font-size: 1.1rem;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    position: relative;
+    color: #fff;
+}
+
+.column-header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+}
+
+.cyan-bar::after { background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
+.green-bar::after { background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); }
+.red-bar::after { background: var(--neon-red); box-shadow: 0 0 10px var(--neon-red); }
+
+.main-desc { color: var(--neon-red); font-weight: bold; font-size: 0.85rem; margin-bottom: 10px; }
+.sub-list { list-style: none; }
+.sub-list li { margin-bottom: 12px; font-size: 0.8rem; color: #ccc; }
+.sub-list li strong { color: #fff; display: block; font-size: 0.9rem; }
+
+.hidden { display: none !important; }
+
+/* --- HERO & LAYOUT --- */
+.container { max-width: 1100px; margin: 40px auto; padding: 20px; position: relative; z-index: 20; }
+
+header.hero-section { 
+    text-align: center; 
+    border: 1px solid #222; 
+    padding: 60px 30px; 
+    border-radius: 8px; 
+    background: rgba(10, 10, 10, 0.8); 
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glitch-text { font-size: 2.2em; letter-spacing: 3px; text-transform: uppercase; color: var(--neon-blue); text-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
+.hero-subtitle { margin-top: 15px; font-size: 1rem; color: #888; }
+.highlight-green { color: var(--neon-green); font-weight: bold; }
+
+/* --- GRID MODULES --- */
+.grid-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 20px; 
+}
+
+.card { 
+    background: var(--card-bg); 
+    border: 1px solid #222; 
+    padding: 25px; 
+    border-radius: 4px; 
+    transition: all 0.3s ease; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8); 
+    background: rgba(20, 20, 20, 1);
+    border-color: #444;
+}
+
+.btn-details, .btn-primary-red {
+    display: inline-block; 
+    margin-top: 15px; 
+    padding: 12px 20px;
+    text-decoration: none; 
+    font-size: 0.85em;
+    font-weight: bold;
+    border-radius: 4px; 
+    transition: 0.3s; 
+    text-align: center;
+}
+
+.btn-primary-red { background: var(--neon-red); color: white; border: none; }
+.btn-primary-red:hover { background: #ff1a53; box-shadow: 0 0 20px var(--neon-red); }
+
+/* --- FOOTER & FORMULAIRES --- */
+.footer-content { 
+    margin-top: 80px; 
+    padding: 40px 30px; 
+    border-top: 1px solid #222; 
+    background: rgba(5, 5, 5, 0.9); 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; 
+}
+
+.footer-title { color: #444; font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 1px; }
+
+form input, form textarea {
+    width: 100%; padding: 12px; background: #111; border: 1px solid #333;
+    color: white; font-family: inherit; margin-bottom: 15px; outline: none;
+}
+form input:focus { border-color: var(--neon-blue); }
+
+.social-bar { text-align: center; margin: 40px 0; padding: 20px; border-top: 1px solid #111; }
+.social-bar a { text-decoration: none; margin: 0 15px; color: var(--neon-green); font-size: 0.9rem; transition: 0.3s; }
+.social-bar a:hover { text-shadow: 0 0 10px var(--neon-green); }
+
+/* --- MOBILE --- */
+@media screen and (max-width: 768px) {
+    .glitch-text { font-size: 1.6rem; }
+    .nav-container { padding: 0 15px; }
+    .nav-links { display: none; } /* On cache les liens sur mobile pour éviter l'écrasement */
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Pour les écrans de moins de 768px (Tablettes/Mobiles larges) */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Cache les liens texte pour un menu burger si tu en crées un */
+    }
+    
+    #projets-container {
+        grid-template-columns: 1fr; /* Force une seule colonne */
+        padding: 10px;
+    }
+
+    .content {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+}
+
+/* Optimisation spécifique pour les petits mobiles (< 480px) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.1rem; /* Réduit la taille du titre */
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .btn-details {
+        width: 100%; /* Le bouton prend toute la largeur pour cliquer facilement avec le pouce */
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    .nav-logo svg {
+        width: 180px; /* Réduit le logo pour qu'il ne déborde pas */
+    }
+}
+
+/* --- ADAPTATION MOBILE MOUSSTALL STUDIO --- */
+@media screen and (max-width: 700px) {
+    /* On empile les liens du menu verticalement */
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column; /* Liens les uns sous les autres */
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        border-top: 1px solid #4deeea; /* Petite ligne de séparation */
+    }
+
+    .nav-links a {
+        font-size: 0.85em;
+        padding: 5px 0;
+    }
+
+    /* On cache les icônes secondaires pour gagner de la place */
+    .nav-icons {
+        display: none;
+    }
+
+    /* Ajustement du container de projets */
+    #projets-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur téléphone */
+        gap: 15px;
+    }
+}
