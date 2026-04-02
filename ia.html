@@ -64,29 +64,27 @@
    <div class="nav-container">
     <div class="nav-logo">
      <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-      <svg height="50" viewbox="0 0 500 100" width="220" xmlns="http://www.w3.org/2000/svg">
-       <defs>
+      
+        <svg height="50" viewbox="0 0 500 100" width="220" xmlns="http://www.w3.org/2000/svg">
+    <defs>
         <filter id="neonGlow">
-         <fegaussianblur result="blur" stddeviation="2.5">
-         </fegaussianblur>
-         <fecomposite in="SourceGraphic" in2="blur" operator="over">
-         </fecomposite>
+            <fegaussianblur result="blur" stddeviation="2.5"></fegaussianblur>
+            <fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
         </filter>
-       </defs>
-       <text fill="#4deeea" filter="url(#neonGlow)" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" x="10" y="50">
-        MOUSSTALL STUDIO
-       </text>
-       <text fill="#888" font-family="'Fira Code', monospace" font-size="14" x="12" y="80">
-        OFFENSIVE SECURITY &amp; DIGITAL CREATION
-       </text>
-       <rect fill="#00853f" height="15" width="10" x="440" y="65">
-       </rect>
-       <rect fill="#fdef42" height="15" width="10" x="450" y="65">
-       </rect>
-       <rect fill="#e31b23" height="15" width="10" x="460" y="65">
-       </rect>
-      </svg>
-     </a>
+    </defs>
+    <text fill="#4deeea" filter="url(#neonGlow)" font-family="'Fira Code', monospace" font-size="38" font-weight="bold" x="10" y="50">MOUSSTALL STUDIO</text>
+    <text fill="#888" font-family="'Fira Code', monospace" font-size="14" x="12" y="80">OFFENSIVE SECURITY &amp; DIGITAL CREATION</text>
+    
+    <g transform="translate(440, 65)">
+        <rect fill="#00853f" height="15" width="10" x="0" y="0"></rect>
+        <rect fill="#fdef42" height="15" width="10" x="10" y="0"></rect>
+        <rect fill="#e31b23" height="15" width="10" x="20" y="0"></rect>
+        <path d="M15,4.5 l0.8,2.5 h2.6 l-2.1,1.5 l0.8,2.5 l-2.1,-1.5 l-2.1,1.5 l0.8,-2.5 l-2.1,-1.5 h2.6 z" fill="#00853f" />
+    </g>
+</svg>
+    
+    
+    </a>
     </div>
     <button class="mobile-btn" id="menu-toggle">
      MENU [=]
